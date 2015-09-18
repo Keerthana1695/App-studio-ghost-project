@@ -1,6 +1,6 @@
 # App Studio Project Proposal Ghost Game #
 ==========================
-
+##### Vincent - 10384081 - <vincent.erich@live.nl> #####
 ##### Project Proposal Version: 1.0 #####
 
 ### Project Summary ###
