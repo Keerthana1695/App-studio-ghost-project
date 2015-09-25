@@ -13,33 +13,33 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 <b>Note</b>: The controller/activity 'GhostGame' is (for now) the only controller/activity with menu items.  
 
-1. <b>MainMenu</b>
+* <b>MainMenu</b>
 
 ![](/Images\ Project\ Proposal/Sketch-1.jpg?raw=true "Sketch 'MainMenu' controller/activity.")
 
-2. <b>Highscores</b>
+* <b>Highscores</b>
 
 ![](/Images\ Project\ Proposal/Sketch-2.jpg?raw=true "Sketch 'Highscores' controller/activity.")
 
-3. <b>HowToPlay</b>
+* <b>HowToPlay</b>
 
 ![](/Images\ Project\ Proposal/Sketch-3.jpg?raw=true "Sketch 'HowToPlay' controller/activity.")
 
-4. <b>Settings</b>
+* <b>Settings</b>
 
 ![](/Images\ Project\ Proposal/Sketch-4.jpg?raw=true "Sketch 'Settings' controller/activity.")
 
-5. <b>PlayerSelect</b>
+* <b>PlayerSelect</b>
 
 ![](/Images\ Project\ Proposal/Sketch-5.jpg?raw=true "Sketch 'PlayerSelect' controller/activity.")
 
-6. <b>GhostGame</b> (includes menu items)
+* <b>GhostGame</b> (includes menu items)
 
 ![](/Images\ Project\ Proposal/Sketch-6.jpg?raw=true "Sketch 'GhostGame' controller/activity.")
 
 ![](/Images\ Project\ Proposal/Sketch-7.jpg?raw=true "Sketch menu 'GhostGame' controller/activity.")
 
-8. <b>Results</b>
+* <b>Results</b>
 
 ![](/Images\ Project\ Proposal/Sketch-8.jpg?raw=true "Sketch 'Results' controller/activity.")
 
@@ -47,9 +47,9 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 The hand-drawn sketches below show four model classes ('Players', 'HighscoresData', 'Preferences', and 'GameState') with their properties and methods.
 
-![](/Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
+![](../Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
 
-![](/Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
+![](../Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
 
 ### API's ###
 
