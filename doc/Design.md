@@ -47,15 +47,15 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 The hand-drawn sketches below show four model classes ('Players', 'HighscoresData', 'Preferences', and 'GameState') with their properties and methods.
 
-![](/doc//Images\ Project\ Proposal/Sketch_1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
+![](/doc//Images\ Design\ Document/Sketch_1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
 
-![](/doc/Images\ Project\ Proposal/Sketch_2.jpg?raw=true "Sketch model classes 'GameState'.")
+![](/doc/Images\ Design\ Document/Sketch_2.jpg?raw=true "Sketch model classes 'GameState'.")
 
 ### Relations between controllers/activities and model classes ###
 
 The diagram below depicts the relations between the controllers/activities and model classes. The blue dashes depict the 'data flow' when a game is played; the red dashes depict the other 'data flows'.
 
-![](/doc//Images\ Project\ Proposal/Sketch_3.jpg?raw=true "Diagram relations controllers/activities and model classes.") 
+![](/doc//Images\ Design\ Document/Sketch_3.jpg?raw=true "Diagram relations controllers/activities and model classes.") 
 
 ### API's ###
 
