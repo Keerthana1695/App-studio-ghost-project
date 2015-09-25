@@ -5,7 +5,7 @@
 
 This design document captures any and all design decisions that I have made before implementing the Ghost application. This document builds on the sketches and information provided in the README (../README.md), so please check out that file first.
 
-<b>Note</b>: This design document will display many similarites with the README file. However, besides sketches of each screen, this document will also capture the relations between the screens (activities/controllers, classes, methods, etc.). 
+<b>Note</b>: This design document will display many similarites with the README. However, besides sketches of each screen, this document will also capture the relations between the screens (activities/controllers, classes, methods, etc.). 
 
 ### Controllers/Activities (with menu items) ###
 
@@ -47,11 +47,13 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 The hand-drawn sketches below show four model classes ('Players', 'HighscoresData', 'Preferences', and 'GameState') with their properties and methods.
 
-![](/Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
-
-![](/Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
-
 <img src="https://github.com/vincent-erich/App-studio-ghost-project/blob/master/doc/Images%20Design%20Document/Sketch_1.jpg"/>
+
+<imag src="https://github.com/vincent-erich/App-studio-ghost-project/blob/master/doc/Images%20Design%20Document/Sketch_2.jpg"/>
+
+![](/doc//Images\ Project\ Proposal/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
+
+![](/doc/Images\ Project\ Proposal/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
 
 ### API's ###
 
