@@ -51,6 +51,8 @@ The hand-drawn sketches below show four model classes ('Players', 'HighscoresDat
 
 ![](/Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
 
+<img src="https://github.com/vincent-erich/App-studio-ghost-project/blob/master/doc/Images%20Design%20Document/Sketch_1.jpg"/>
+
 ### API's ###
 
 It is likely that some API's will be used while implementing the application (i.e., API's for Dutch and English dictionaries). 
