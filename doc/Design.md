@@ -13,33 +13,33 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 <b>Note</b>: The controller/activity 'GhostGame' is (for now) the only controller/activity with menu items.  
 
-* <b>MainMenu</b>
+* <b>MainMenu</b> (1)
 
 ![](/Images\ Project\ Proposal/Sketch-1.jpg?raw=true "Sketch 'MainMenu' controller/activity.")
 
-* <b>Highscores</b>
+* <b>Highscores</b> (2)
 
 ![](/Images\ Project\ Proposal/Sketch-2.jpg?raw=true "Sketch 'Highscores' controller/activity.")
 
-* <b>HowToPlay</b>
+* <b>HowToPlay</b> (3)
 
 ![](/Images\ Project\ Proposal/Sketch-3.jpg?raw=true "Sketch 'HowToPlay' controller/activity.")
 
-* <b>Settings</b>
+* <b>Settings</b> (4)
 
 ![](/Images\ Project\ Proposal/Sketch-4.jpg?raw=true "Sketch 'Settings' controller/activity.")
 
-* <b>PlayerSelect</b>
+* <b>PlayerSelect</b> (5)
 
 ![](/Images\ Project\ Proposal/Sketch-5.jpg?raw=true "Sketch 'PlayerSelect' controller/activity.")
 
-* <b>GhostGame</b> (includes menu items)
+* <b>GhostGame</b> (includes menu items, 6 + 7)
 
 ![](/Images\ Project\ Proposal/Sketch-6.jpg?raw=true "Sketch 'GhostGame' controller/activity.")
 
 ![](/Images\ Project\ Proposal/Sketch-7.jpg?raw=true "Sketch menu 'GhostGame' controller/activity.")
 
-* <b>Results</b>
+* <b>Results</b> (8)
 
 ![](/Images\ Project\ Proposal/Sketch-8.jpg?raw=true "Sketch 'Results' controller/activity.")
 
@@ -47,9 +47,9 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 The hand-drawn sketches below show four model classes ('Players', 'HighscoresData', 'Preferences', and 'GameState') with their properties and methods.
 
-![](../Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
+![](/../Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
 
-![](../Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
+![](/../Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
 
 ### API's ###
 
