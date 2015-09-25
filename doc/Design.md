@@ -47,9 +47,9 @@ The hand-drawn sketches below are adopted from the README. Each sketch depicts a
 
 The hand-drawn sketches below show four model classes ('Players', 'HighscoresData', 'Preferences', and 'GameState') with their properties and methods.
 
-![](/Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
+![](/doc/Images\ Design\ Document/Sketch-1.jpg?raw=true "Sketch model classes 'Players', 'HighscoresData', and 'Preferences'.")
 
-![](/Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
+![](/doc/Images\ Design\ Document/Sketch-2.jpg?raw=true "Sketch model class 'GameState'.")
 
 ### API's ###
 
