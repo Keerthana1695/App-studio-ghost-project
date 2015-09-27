@@ -1,26 +1,24 @@
 package com.example.vincent.ghost;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-//public class MainMenu extends AppCompatActivity {
-public class MainMenu extends Activity {
+//public class HowToPlay extends AppCompatActivity {
+public class HowToPlay extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_main_menu);
+        setContentView(R.layout.layout_how_to_play);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_how_to_play, menu);
         return true;
     }
 
@@ -37,10 +35,5 @@ public class MainMenu extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onHowToPlayClick(View view) {
-        Intent goToHowToPlay = new Intent(getApplicationContext(), HowToPlay.class);
-        startActivity(goToHowToPlay);
     }
 }
