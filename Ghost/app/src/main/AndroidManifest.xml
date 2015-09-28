@@ -10,7 +10,9 @@
         <activity
             android:name=".MainMenu"
             android:label="@string/app_name"
-            android:theme="@style/MainMenuTheme" >
+            android:screenOrientation="portrait" >
+
+            <!-- android:theme="@style/MainMenuTheme" -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +22,21 @@
         <activity
             android:name=".HowToPlay"
             android:label="@string/title_activity_how_to_play"
-            android:theme="@style/HowToPlayTheme">
+            android:screenOrientation="portrait" >
+
+            <!-- android:theme="@style/HowToPlayTheme" -->
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".PlayerSelect"
+            android:label="@string/title_activity_player_select" >
+        </activity>
+        <activity
+            android:name=".Highscores"
+            android:label="@string/title_activity_highscores" >
         </activity>
     </application>
 

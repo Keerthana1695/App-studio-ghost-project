@@ -11,10 +11,13 @@
     tools:context=".MainMenu">
 
     <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/main_menu_title"
         android:contentDescription="@string/main_menu_text_tile"
-        android:id="@+id/title_imageView"
-        style="@style/ImageViewScreenTitleRelative"/>
+        android:id="@+id/title_imageView"/>
 
     <ImageView
         android:layout_width="200dp"
@@ -40,7 +43,6 @@
             android:text="@string/main_menu_text_start_a_game"
             android:drawableStart="@drawable/play_icon"
             android:drawableLeft="@drawable/play_icon"
-            android:onClick="onStartAGameClick"
             android:id="@+id/start_a_game_textView"
             style="@style/TextViewOptionMainMenu"/>
 
@@ -48,7 +50,6 @@
             android:text="@string/main_menu_text_highscores"
             android:drawableStart="@drawable/trophy_icon"
             android:drawableLeft="@drawable/trophy_icon"
-            android:onClick="onHighscoresClick"
             android:id="@+id/highscores_textView"
             style="@style/TextViewOptionMainMenu"/>
 
@@ -77,7 +78,8 @@
         android:onClick="onExitClick"
         android:id="@+id/exit_textView"
         style="@style/TextViewOptionMainMenu"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/containing_gridLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>

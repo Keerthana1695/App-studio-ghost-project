@@ -1,23 +1,32 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
+    <style name="AppTheme" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MainMenuTheme" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
-        <!-- Customize your theme here. -->
+    <style name="ImageViewScreenTitleRelative">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
-    <style name="HowToPlayTheme" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
-        <!-- Customize your theme here. -->
+    <style name="ImageViewScreenTitleLinear">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:paddingBottom">15dp</item>
     </style>
 
     <style name="TextViewOptionMainMenu">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:drawablePadding">20dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
         <item name="android:clickable">true</item>
         <item name="android:gravity">center</item>
     </style>

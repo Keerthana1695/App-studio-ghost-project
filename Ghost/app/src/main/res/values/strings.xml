@@ -1,14 +1,41 @@
 <resources>
     <string name="app_name">Ghost</string>
 
+    <!-- Settings -->
     <string name="action_settings">Settings</string>
-    <string name="main_menu_text_tile">Application title</string>
+    <string name="action_back">Back</string>
+
+    <!-- Main menu -->
+    <string name="main_menu_text_tile">Ghost</string>
     <string name="main_menu_text_image">Ghost</string>
     <string name="main_menu_text_start_a_game">Start a game</string>
     <string name="main_menu_text_highscores">Highscores</string>
     <string name="main_menu_text_how_to_play">How to play</string>
     <string name="main_menu_text_settings">Settings</string>
+    <string name="main_menu_text_exit">Exit</string>
 
+    <!-- Exit dialog -->
+    <string name="exit_dialog_text_title">Confirm exit</string>
+    <string name="exit_dialog_text_message">Are you sure you want to exit?</string>
+    <string name="exit_dialog_text_positive_button">OK</string>
+    <string name="exit_dialog_text_negative_button">CANCEL</string>
+    <string name="exit_dialog_text_toast">Exit cancled.</string>
+
+    <!-- How to play -->
     <string name="title_activity_how_to_play">How to play</string>
     <string name="how_to_play_text_title">How to play</string>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_text_title">Settings</string>
+
+    <!-- Player select -->
+    <string name="title_activity_player_select">Player select</string>
+    <string name="player_select_text_title">Player select</string>
+
+    <!-- Highscores -->
+    <string name="title_activity_highscores">Highscores</string>
+    <string name="highscores_text_title">Highscores</string>
+
+
 </resources>

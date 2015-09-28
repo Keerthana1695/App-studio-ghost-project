@@ -15,13 +15,12 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:src="@drawable/how_to_play_title"
-            android:contentDescription="@string/how_to_play_text_title"/>
+            android:contentDescription="@string/how_to_play_text_title"
+            style="@style/ImageViewScreenTitleLinear"/>
 
         <TextView
-            android:text="Explanation here..."
+            android:text="How to play here..."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
