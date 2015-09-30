@@ -14,7 +14,7 @@
         android:src="@drawable/main_menu_title"
         android:contentDescription="@string/main_menu_text_tile"
         android:id="@+id/title_imageView"
-        style="@style/ImageViewScreenTitleRelative"/>
+        style="@style/ImageViewScreenTitleMainMenu"/>
 
     <ImageView
         android:layout_width="200dp"

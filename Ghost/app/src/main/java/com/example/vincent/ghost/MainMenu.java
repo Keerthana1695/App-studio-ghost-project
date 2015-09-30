@@ -17,9 +17,9 @@ public class MainMenu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main_menu);
 
-        // Lexicon test...
+        // Lexicon test.
         /*
-        Lexicon lexicon = new Lexicon(getApplicationContext());
+        Lexicon lexicon = new Lexicon(getApplicationContext(), "TEST");
         System.out.println(lexicon.baseLexicon);
         System.out.println(lexicon.filteredLexicon);
         System.out.println();

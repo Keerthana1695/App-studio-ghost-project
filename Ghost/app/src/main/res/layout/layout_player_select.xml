@@ -15,9 +15,103 @@
         android:contentDescription="@string/player_select_text_title"
         style="@style/ImageViewScreenTitleLinear" />
 
+    <ImageView
+        android:src="@drawable/player_1_text"
+        android:contentDescription="@string/player_select_text_player_1"
+        style="@style/ImageViewPlayer"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal">
+
     <TextView
-        android:text="Player select here..."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/player_select_player_1"
+        style="@style/TextViewPlayerSelect"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player1_spinner">
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/player_select_text_hint"
+            android:id="@+id/player1_editText"/>
+
+        <Button
+            android:text="@string/player_select_text_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onNameButton1Click"
+            android:id="@+id/player1_name_button"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:src="@drawable/player_2_text"
+        android:contentDescription="@string/player_select_text_player_2"
+        style="@style/ImageViewPlayer"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="@string/player_select_player_2"
+            style="@style/TextViewPlayerSelect"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player2_spinner">
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/player_select_text_hint"
+            android:id="@+id/player2_editText"/>
+
+        <Button
+            android:text="@string/player_select_text_name_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onNameButton2Click"
+            android:id="@+id/player2_name_button"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/player_select_text_play"
+        android:drawableStart="@drawable/play_icon"
+        android:drawableLeft="@drawable/play_icon"
+        android:paddingTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onPlayClick"
+        style="@style/TextViewOptionMainMenu"/>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.vincent.ghost;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,18 +16,29 @@ public class Lexicon {
     public HashSet<String> baseLexicon;
     public HashSet<String> filteredLexicon;
 
-    public Lexicon(Context context) {
-        baseLexicon = new HashSet<String>();
-        filteredLexicon = new HashSet<String>();
-        createBaseLexicon(context);
+    public Lexicon(Context context, String language) {
+        baseLexicon = new HashSet<>();
+        filteredLexicon = new HashSet<>();
+        createBaseLexicon(context, language);
         filteredLexicon.addAll(baseLexicon);
     }
 
     // Methods of the class...
 
-    private void createBaseLexicon(Context context) {
+    private void createBaseLexicon(Context context, String language) {
+        // Create the base lexicon. Use the String argument to read the right text file.
         try {
-            InputStream inputStream = context.getResources().getAssets().open("lexicon.txt");
+            InputStream inputStream;
+            if(language.equals("DUTCH")) {
+                inputStream = context.getResources().getAssets().open("dutch.txt");
+            }
+            else if(language.equals("ENGLISH")){
+                inputStream = context.getResources().getAssets().open("english.txt");
+            }
+            // Test.
+            else {
+                inputStream = context.getResources().getAssets().open("test.txt");
+            }
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             while ((line = reader.readLine()) != null) {
@@ -35,12 +47,16 @@ public class Lexicon {
             reader.close();
         }
         catch (IOException e) {
-            System.out.println("IOException...");
+            Toast.makeText(context, R.string.lexicon_text_retrieval_error, Toast.LENGTH_SHORT).show();
         }
     }
 
     public void filter (String input) {
-        HashSet<String> iteratorHashSet = new HashSet<String>();
+        // Filter the word list using the String argument. Because loading the base lexicon takes
+        // quite a bit of time, this method does not destroy the base lexicon and thus allows it to
+        // be re-used.
+        // Use an 'iteratorHashSet' to prevent a 'ConcurrentModificationException' to be thrown.
+        HashSet<String> iteratorHashSet = new HashSet<>();
         iteratorHashSet.addAll(filteredLexicon);
         Iterator<String> iterator = iteratorHashSet.iterator();
         String word;
@@ -53,18 +69,21 @@ public class Lexicon {
     }
 
     public int count() {
+        // Return the number of words in the filtered list.
         return filteredLexicon.size();
     }
 
     public String result() {
-        String lastWord = "";
+        // Return the single remaining word in the filtered list. If the filtered list contains
+        // more than one word, return null.
         if(count() == 1) {
-            lastWord = filteredLexicon.iterator().next();
+            return filteredLexicon.iterator().next();
         }
-        return lastWord;
+        return null;
     }
 
     public void reset() {
+        // Remove the filter and re-start with the original (base) lexicon.
         filteredLexicon.clear();
         filteredLexicon.addAll(baseLexicon);
     }

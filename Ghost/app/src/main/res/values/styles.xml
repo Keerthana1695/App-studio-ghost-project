@@ -6,7 +6,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ImageViewScreenTitleRelative">
+    <style name="ImageViewScreenTitleMainMenu">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_alignParentTop">true</item>
@@ -20,7 +20,7 @@
         <item name="android:paddingBottom">15dp</item>
     </style>
 
-    <style name="TextViewOptionMainMenu">
+    <style name="TextViewOptionMainMenu" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">17sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -29,6 +29,19 @@
         <item name="android:paddingBottom">15dp</item>
         <item name="android:clickable">true</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ImageViewPlayer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="TextViewPlayerSelect" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">10dp</item>
     </style>
 
 </resources>

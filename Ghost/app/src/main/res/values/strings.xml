@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_back">Back</string>
 
-    <!-- Main menu -->
+    <!-- MainMenu -->
     <string name="main_menu_text_tile">Ghost</string>
     <string name="main_menu_text_image">Ghost</string>
     <string name="main_menu_text_start_a_game">Start a game</string>
@@ -14,14 +14,14 @@
     <string name="main_menu_text_settings">Settings</string>
     <string name="main_menu_text_exit">Exit</string>
 
-    <!-- Exit dialog -->
+    <!-- ExitDialogFragment -->
     <string name="exit_dialog_text_title">Confirm exit</string>
     <string name="exit_dialog_text_message">Are you sure you want to exit?</string>
-    <string name="exit_dialog_text_positive_button">OK</string>
-    <string name="exit_dialog_text_negative_button">CANCEL</string>
+    <string name="exit_dialog_text_positive_button">@android:string/ok</string>
+    <string name="exit_dialog_text_negative_button">@android:string/cancel</string>
     <string name="exit_dialog_text_toast">Exit cancled.</string>
 
-    <!-- How to play -->
+    <!-- HowToPlay -->
     <string name="title_activity_how_to_play">How to play</string>
     <string name="how_to_play_text_title">How to play</string>
 
@@ -29,13 +29,30 @@
     <string name="title_activity_settings">Settings</string>
     <string name="settings_text_title">Settings</string>
 
-    <!-- Player select -->
+    <!-- PlayerSelect -->
     <string name="title_activity_player_select">Player select</string>
     <string name="player_select_text_title">Player select</string>
+    <string name="player_select_text_player_1">Player 1</string>
+    <string name="player_select_player_1">Select name player 1:</string>
+    <string name="player_select_text_hint">New player? Enter name!</string>
+    <string name="player_select_text_name_button">Add</string>
+    <string name="player_select_text_player_2">Player 2</string>
+    <string name="player_select_player_2">Select name player 2:</string>
+    <string name="player_select_text_play">Play!</string>
+    <string name="player_select_text_same_name">Player 1 and player 2 cannot have the same name.</string>
+
+    <!-- Players -->
+    <string name="players_text_retrieval_error">Error retrieving player names.</string>
+    <string name="players_text_duplicate_player">Player name already exists.</string>
+    <string name="players_text_empty_name">Please enter a player name.</string>
+    <string name="players_text_save_error">Error saving player name.</string>
+    <string name="players_text_player_added">Player name added.</string>
 
     <!-- Highscores -->
     <string name="title_activity_highscores">Highscores</string>
     <string name="highscores_text_title">Highscores</string>
 
+    <!-- Lexicon -->
+    <string name="lexicon_text_retrieval_error">Error retrieving the word list.</string>
 
 </resources>
