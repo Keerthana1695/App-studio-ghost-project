@@ -38,6 +38,10 @@
             android:name=".Highscores"
             android:label="@string/title_activity_highscores" >
         </activity>
+        <activity
+            android:name=".GhostGame"
+            android:label="@string/title_activity_ghost_game" >
+        </activity>
     </application>
 
 </manifest>

@@ -13,8 +13,8 @@ import java.util.Iterator;
 public class Lexicon {
 
     // Properties of the class...
-    public HashSet<String> baseLexicon;
-    public HashSet<String> filteredLexicon;
+    private HashSet<String> baseLexicon;
+    private HashSet<String> filteredLexicon;
 
     public Lexicon(Context context, String language) {
         baseLexicon = new HashSet<>();

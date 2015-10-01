@@ -1,6 +1,7 @@
 package com.example.vincent.ghost;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ public class PlayerSelect extends Activity {
 
     private final String keyPlayer1EditText = "player1EditText";
     private final String keyPlayer2EditText = "player2EditText";
+
+    public static final String keyPlayer1Name = "player1Name";
+    public static final String keyPlayer2Name = "player2Name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,9 +107,12 @@ public class PlayerSelect extends Activity {
         if(namePlayer1.equals(namePlayer2)) {
             Toast.makeText(getApplicationContext(), R.string.player_select_text_same_name, Toast.LENGTH_SHORT).show();
         } else {
-            System.out.println("Name player 1: " + namePlayer1);
-            System.out.println("Name player 2: " + namePlayer2);
-            // Start game...
+            //System.out.println("Name player 1: " + namePlayer1);
+            //System.out.println("Name player 2: " + namePlayer2);
+            Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
+            goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
+            goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
+            startActivity(goToGhostGame);
         }
     }
 
