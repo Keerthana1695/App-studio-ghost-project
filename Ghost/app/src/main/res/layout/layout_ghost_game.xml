@@ -1,5 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,22 +12,29 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/border"
         android:orientation="vertical"
         android:id="@+id/player1_linearLayout">
 
         <TextView
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingBottom="5dp"
             android:gravity="start"
             android:id="@+id/player1_name_textView"/>
 
         <TextView
-            android:textSize="20sp"
+            android:text="@string/ghost_game_text_initial_letters_player"
+            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:gravity="start"
             android:id="@+id/player1_letters_textView"/>
 
@@ -38,33 +44,64 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/border"
         android:orientation="vertical"
         android:id="@+id/player2_linearLayout">
 
         <TextView
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingBottom="5dp"
             android:gravity="end"
             android:id="@+id/player2_name_textView"/>
 
         <TextView
-            android:textSize="20sp"
+            android:text="@string/ghost_game_text_initial_letters_player"
+            android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:gravity="end"
             android:id="@+id/player2_letters_textView"/>
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/player1_linearLayout"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/ghost_game_text_image"
+            android:id="@+id/turn_imageView"/>
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/word_textView"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
         android:id="@+id/input_linearLayout">
 
         <EditText
@@ -82,14 +119,5 @@
             android:id="@+id/button"/>
 
     </LinearLayout>
-
-    <TextView
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/input_linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp"
-        android:id="@+id/word_textView"/>
 
 </RelativeLayout>

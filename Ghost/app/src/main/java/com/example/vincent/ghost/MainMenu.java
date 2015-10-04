@@ -16,38 +16,6 @@ public class MainMenu extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main_menu);
-
-        // Lexicon test.
-        /*
-        Lexicon lexicon = new Lexicon(getApplicationContext(), "TEST");
-        System.out.println(lexicon.baseLexicon);
-        System.out.println(lexicon.filteredLexicon);
-        System.out.println();
-
-        String input = "a";
-        lexicon.filter(input);
-        System.out.println(lexicon.baseLexicon);
-        System.out.println(lexicon.filteredLexicon);
-        System.out.println();
-
-        input = "ap";
-        lexicon.filter(input);
-        System.out.println(lexicon.baseLexicon);
-        System.out.println(lexicon.filteredLexicon);
-        System.out.println();
-
-        input="appelboom";
-        lexicon.filter(input);
-        System.out.println(lexicon.baseLexicon);
-        System.out.println(lexicon.filteredLexicon);
-        System.out.println(lexicon.result());
-        System.out.println();
-
-        lexicon.reset();
-        System.out.println(lexicon.baseLexicon);
-        System.out.println(lexicon.filteredLexicon);
-        System.out.println();
-        */
     }
 
     @Override

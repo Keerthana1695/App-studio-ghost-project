@@ -4,6 +4,9 @@
     <!-- Settings -->
     <string name="action_settings">Settings</string>
     <string name="action_back">Back</string>
+    <string name="action_new_game">New game</string>
+    <string name="action_change_language">Change language</string>
+    <string name="action_change_player_names">Change player name(s)</string>
 
     <!-- MainMenu -->
     <string name="main_menu_text_tile">Ghost</string>
@@ -28,6 +31,9 @@
     <!-- Settings -->
     <string name="title_activity_settings">Settings</string>
     <string name="settings_text_title">Settings</string>
+    <string name="settings_text_language">Language dictionary:</string>
+    <string name="settings_text_radio_dutch">Dutch</string>
+    <string name="settings_text_radio_english">English</string>
 
     <!-- PlayerSelect -->
     <string name="title_activity_player_select">Player select</string>
@@ -57,6 +63,8 @@
     <string name="title_activity_ghost_game">Ghost game</string>
 
     <!-- GhostGame -->
+    <string name="ghost_game_text_initial_letters_player">.....</string>
+    <string name="ghost_game_text_image">Player turn</string>
     <string name="ghost_game_text_hint">Enter a letter</string>
     <string name="ghost_game_text_button">Enter</string>
 

@@ -14,7 +14,7 @@
         android:src="@drawable/main_menu_title"
         android:contentDescription="@string/main_menu_text_tile"
         android:id="@+id/title_imageView"
-        style="@style/ImageViewScreenTitleMainMenu"/>
+        style="@style/ImageViewScreenTitleRelative"/>
 
     <ImageView
         android:layout_width="200dp"
@@ -29,12 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ghost_imageView"
         android:layout_marginTop="70dp"
         android:rowCount="2"
         android:columnCount="2"
         android:orientation="horizontal"
-        android:id="@+id/containing_gridLayout"
-        android:layout_below="@+id/ghost_imageView">
+        android:id="@+id/containing_gridLayout">
 
         <TextView
             android:text="@string/main_menu_text_start_a_game"

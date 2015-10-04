@@ -16,8 +16,29 @@
         style="@style/ImageViewScreenTitleLinear"/>
 
     <TextView
-        android:text="Settings here..."
+        android:textSize="17sp"
+        android:text="@string/settings_text_language"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/language_radioGroup">
+
+        <RadioButton
+            android:text="@string/settings_text_radio_dutch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dutch_radioButton"/>
+
+        <RadioButton
+            android:text="@string/settings_text_radio_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/english_radioButton"/>
+
+    </RadioGroup>
 
 </LinearLayout>

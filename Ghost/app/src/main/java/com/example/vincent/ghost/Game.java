@@ -11,8 +11,8 @@ public class Game {
     public Game(Lexicon lexicon) {
         this.lexicon = lexicon;
         wordFormed = "";
-        lettersPlayer1 = "";
-        lettersPlayer2 = "";
+        lettersPlayer1 = ".....";
+        lettersPlayer2 = ".....";
         playerTurn = 1;
     }
 
@@ -28,45 +28,50 @@ public class Game {
         lexicon.filter(input);
     }
 
+    // A new round starts when:
+    // 1: No valid word can be formed, or
+    // 2: A word longer than 3 letters has been formed, or
+    // 3: The only possible word has been formed.
     public boolean endRound() {
         return ((lexicon.count() == 0) ||
+                (wordFormed.length() > 3 && lexicon.getFilteredLexicon().contains(wordFormed)) ||
                 (lexicon.count() == 1 && wordFormed.equals(lexicon.result())));
     }
 
     public void setLettersPlayer1() {
         switch(lettersPlayer1) {
-            case "":
-                lettersPlayer1 = "G";
+            case ".....":
+                lettersPlayer1 = "G....";
                 break;
-            case "G":
-                lettersPlayer1 = "GH";
+            case "G....":
+                lettersPlayer1 = "GH...";
                 break;
-            case "GH":
-                lettersPlayer1 = "GHO";
+            case "GH...":
+                lettersPlayer1 = "GHO..";
                 break;
-            case "GHO":
-                lettersPlayer1 = "GHOS";
+            case "GHO..":
+                lettersPlayer1 = "GHOS.";
                 break;
-            case "GHOS":
+            case "GHOS.":
                 lettersPlayer1 = "GHOST";
         }
     }
 
     public void setLettersPlayer2() {
         switch(lettersPlayer2) {
-            case "":
-                lettersPlayer2 = "G";
+            case ".....":
+                lettersPlayer2 = "G....";
                 break;
-            case "G":
-                lettersPlayer2 = "GH";
+            case "G....":
+                lettersPlayer2 = "GH...";
                 break;
-            case "GH":
-                lettersPlayer2 = "GHO";
+            case "GH...":
+                lettersPlayer2 = "GHO..";
                 break;
-            case "GHO":
-                lettersPlayer2 = "GHOS";
+            case "GHO..":
+                lettersPlayer2 = "GHOS.";
                 break;
-            case "GHOS":
+            case "GHOS.":
                 lettersPlayer2 = "GHOST";
         }
     }

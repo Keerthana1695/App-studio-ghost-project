@@ -29,15 +29,11 @@ public class Lexicon {
         // Create the base lexicon. Use the String argument to read the right text file.
         try {
             InputStream inputStream;
-            if(language.equals("DUTCH")) {
+            if(language.equals(Settings.dutchLanguage)) {
                 inputStream = context.getResources().getAssets().open("dutch.txt");
             }
-            else if(language.equals("ENGLISH")){
-                inputStream = context.getResources().getAssets().open("english.txt");
-            }
-            // Test.
             else {
-                inputStream = context.getResources().getAssets().open("test.txt");
+                inputStream = context.getResources().getAssets().open("english.txt");
             }
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
@@ -86,5 +82,9 @@ public class Lexicon {
         // Remove the filter and re-start with the original (base) lexicon.
         filteredLexicon.clear();
         filteredLexicon.addAll(baseLexicon);
+    }
+
+    public HashSet<String> getFilteredLexicon() {
+        return filteredLexicon;
     }
 }
