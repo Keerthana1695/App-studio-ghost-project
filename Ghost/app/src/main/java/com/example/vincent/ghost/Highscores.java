@@ -5,14 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 //public class Highscores extends AppCompatActivity {
 public class Highscores extends Activity {
+
+    private ArrayAdapter theAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_highscores);
+        ListView theListView = (ListView) findViewById(R.id.highscores_listView);
+        //theAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, ArrayList here...)
     }
 
     @Override

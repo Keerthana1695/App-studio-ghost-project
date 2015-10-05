@@ -45,6 +45,7 @@
     <string name="player_select_text_player_2">Player 2</string>
     <string name="player_select_player_2">Select name player 2:</string>
     <string name="player_select_text_play">Play!</string>
+    <string name="player_select_text_no_names">Please select (a) player name(s).</string>
     <string name="player_select_text_same_name">Player 1 and player 2 cannot have the same name.</string>
 
     <!-- Players -->
@@ -68,5 +69,12 @@
     <string name="ghost_game_text_hint">Enter a letter</string>
     <string name="ghost_game_text_button">Enter</string>
 
+    <!-- Results -->
+    <string name="title_activity_results">Results</string>
+    <string name="results_text_title">Results</string>
+    <string name="results_text_winner_image">Winner</string>
+    <string name="results_text_winner1">Congratulations</string>
+    <string name="results_text_winner2">, you have won the game! You are a winner!</string>
+    <string name="results_text_main_menu">Main menu</string>
 
 </resources>

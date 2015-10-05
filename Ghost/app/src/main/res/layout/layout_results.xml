@@ -1,0 +1,74 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.vincent.ghost.Results">
+
+    <ImageView
+        android:src="@drawable/results_title"
+        android:contentDescription="@string/results_text_title"
+        style="@style/ImageViewScreenTitleRelative"
+        android:id="@+id/imageView2" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/results_text_winner_image"
+            android:src="@drawable/ghost_winner"/>
+
+        <TextView
+            android:textSize="21sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/winner_textView"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/main_menu_text_highscores"
+            android:drawableStart="@drawable/trophy_icon"
+            android:drawableLeft="@drawable/trophy_icon"
+            android:onClick="onHighscoresClickInResults"
+            android:id="@+id/results_highscores_textView"
+            style="@style/TextViewOptionMainMenu"/>
+
+        <TextView
+            android:text="@string/action_new_game"
+            android:drawableStart="@drawable/play_icon"
+            android:drawableLeft="@drawable/play_icon"
+            android:onClick="onNewGameClick"
+            android:id="@+id/results_new_game_textView"
+            style="@style/TextViewOptionMainMenu"/>
+
+        <TextView
+            android:text="@string/results_text_main_menu"
+            android:drawableStart="@drawable/home_icon"
+            android:drawableLeft="@drawable/home_icon"
+            android:onClick="onMainMenuClick"
+            android:id="@+id/results_main_menu_textView"
+            style="@style/TextViewOptionMainMenu"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

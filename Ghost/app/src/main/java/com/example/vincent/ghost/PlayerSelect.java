@@ -101,16 +101,23 @@ public class PlayerSelect extends Activity {
     }
 
     public void onPlayClick(View view) {
-        String namePlayer1 = player1Spinner.getSelectedItem().toString();
-        String namePlayer2 = player2Spinner.getSelectedItem().toString();
-        if(namePlayer1.equals(namePlayer2)) {
-            Toast.makeText(getApplicationContext(), R.string.player_select_text_same_name, Toast.LENGTH_SHORT).show();
-        } else {
-            Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
-            goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
-            goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
-            startActivity(goToGhostGame);
-            finish();
+        Object objectNamePlayer1 = player1Spinner.getSelectedItem();
+        Object objectNamePlayer2 = player2Spinner.getSelectedItem();
+        if(objectNamePlayer1 == null || objectNamePlayer2 == null) {
+            Toast.makeText(getApplicationContext(), R.string.player_select_text_no_names, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String namePlayer1 = objectNamePlayer1.toString();
+            String namePlayer2 = objectNamePlayer2.toString();
+            if (namePlayer1.equals(namePlayer2)) {
+                Toast.makeText(getApplicationContext(), R.string.player_select_text_same_name, Toast.LENGTH_SHORT).show();
+            } else {
+                Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
+                goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
+                goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
+                startActivity(goToGhostGame);
+                finish();
+            }
         }
     }
 

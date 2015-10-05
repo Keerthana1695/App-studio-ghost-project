@@ -3,7 +3,7 @@ package com.example.vincent.ghost;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +19,8 @@ import java.util.List;
 //public class GhostGame extends AppCompatActivity {
 public class GhostGame extends Activity {
 
-    private TextView namePlayer1, namePlayer2;
+    private TextView textNamePlayer1, textNamePlayer2;
+    private String namePlayer1, namePlayer2;
     private TextView lettersPlayer1, lettersPlayer2;
     private ImageView playerTurn;
     private TextView wordFormed;
@@ -28,6 +29,8 @@ public class GhostGame extends Activity {
 
     private final List<String> validInput = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "'");
+
+    public static final String nameWinnerKey = "nameWinnerKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +42,8 @@ public class GhostGame extends Activity {
     }
 
     private void initializeViews() {
-        namePlayer1 = (TextView) findViewById(R.id.player1_name_textView);
-        namePlayer2 = (TextView) findViewById(R.id.player2_name_textView);
+        textNamePlayer1 = (TextView) findViewById(R.id.player1_name_textView);
+        textNamePlayer2 = (TextView) findViewById(R.id.player2_name_textView);
         lettersPlayer1 = (TextView) findViewById(R.id.player1_letters_textView);
         lettersPlayer2 = (TextView) findViewById(R.id.player2_letters_textView);
         playerTurn = (ImageView) findViewById(R.id.turn_imageView);
@@ -50,10 +53,10 @@ public class GhostGame extends Activity {
 
     private void setPlayerNames() {
         Intent activityThatCalled = getIntent();
-        String player1Name = activityThatCalled.getExtras().getString(PlayerSelect.keyPlayer1Name);
-        String player2Name = activityThatCalled.getExtras().getString(PlayerSelect.keyPlayer2Name);
-        namePlayer1.setText(player1Name + " (1)");
-        namePlayer2.setText(player2Name + " (2)");
+        namePlayer1 = activityThatCalled.getExtras().getString(PlayerSelect.keyPlayer1Name);
+        namePlayer2 = activityThatCalled.getExtras().getString(PlayerSelect.keyPlayer2Name);
+        textNamePlayer1.setText(namePlayer1 + " (1)");
+        textNamePlayer2.setText(namePlayer2 + " (2)");
     }
 
     private void createGame() {
@@ -72,16 +75,19 @@ public class GhostGame extends Activity {
                 lexicon = new Lexicon(getApplicationContext(), Settings.dutchLanguage);
         }
         game = new Game(lexicon);
-        setImageTurn();
+        setImageTurnAndPlayerText();
         Toast.makeText(getApplication(), "Player " + game.turn() + " starts the game. Good luck!", Toast.LENGTH_LONG).show();
-        // Start a new intent.
     }
 
-    private void setImageTurn() {
+    private void setImageTurnAndPlayerText() {
         if (game.turn() == 1) {
+            textNamePlayer1.setTypeface(Typeface.DEFAULT_BOLD);
+            textNamePlayer2.setTypeface(Typeface.DEFAULT);
             playerTurn.setImageResource(R.drawable.ghost);
         }
         else {
+            textNamePlayer1.setTypeface(Typeface.DEFAULT);
+            textNamePlayer2.setTypeface(Typeface.DEFAULT_BOLD);
             playerTurn.setImageResource(R.drawable.ghost2);
         }
     }
@@ -127,9 +133,16 @@ public class GhostGame extends Activity {
             if (game.endRound()) {
                 setLettersLosingPlayer();
                 if (game.ended()) {
-                    int winner = game.winner();
-                    Toast.makeText(getApplicationContext(), "Game has ended! Player " + String.valueOf(winner) + " has won the game!", Toast.LENGTH_LONG).show();
                     wordFormed.setText("");
+                    int winner = game.winner();
+                    Intent goToResults = new Intent(getApplicationContext(), Results.class);
+                    if(winner == 1) {
+                        goToResults.putExtra(nameWinnerKey, namePlayer1);
+                    } else {
+                        goToResults.putExtra(nameWinnerKey, namePlayer2);
+                    }
+                    startActivity(goToResults);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "New round!", Toast.LENGTH_SHORT).show();
                     game.startNewRound();
@@ -137,7 +150,7 @@ public class GhostGame extends Activity {
                 }
             }
             game.changeTurn();
-            setImageTurn();
+            setImageTurnAndPlayerText();
         }
         else {
             Toast.makeText(getApplicationContext(), "Please enter a valid letter!", Toast.LENGTH_SHORT).show();

@@ -10,7 +10,7 @@
         <activity
             android:name=".MainMenu"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,21 +25,26 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".PlayerSelect"
             android:label="@string/title_activity_player_select"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Highscores"
             android:label="@string/title_activity_highscores"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".GhostGame"
             android:label="@string/title_activity_ghost_game"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Results"
+            android:label="@string/title_activity_results"
             android:screenOrientation="portrait">
         </activity>
     </application>

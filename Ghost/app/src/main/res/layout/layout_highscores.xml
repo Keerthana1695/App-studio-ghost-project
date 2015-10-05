@@ -15,9 +15,10 @@
         android:contentDescription="@string/highscores_text_title"
         style="@style/ImageViewScreenTitleLinear"/>
 
-    <TextView
-        android:text="Highscores here..."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/highscores_listView"/>
 
 </LinearLayout>

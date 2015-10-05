@@ -48,7 +48,7 @@
             android:text="@string/main_menu_text_highscores"
             android:drawableStart="@drawable/trophy_icon"
             android:drawableLeft="@drawable/trophy_icon"
-            android:onClick="onHighscoresClick"
+            android:onClick="onHighscoresClickInMainMenu"
             android:id="@+id/highscores_textView"
             style="@style/TextViewOptionMainMenu"/>
 
