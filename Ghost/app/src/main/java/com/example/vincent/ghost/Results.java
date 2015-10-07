@@ -9,19 +9,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Hashtable;
+import java.util.TreeMap;
+
 //public class Results extends AppCompatActivity {
 public class Results extends Activity {
-
-    private TextView winnerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_results);
-        winnerText = (TextView) findViewById(R.id.winner_textView);
+        TextView winnerText = (TextView) findViewById(R.id.winner_textView);
         Intent activityThatCalled = getIntent();
-        String nameWinner = activityThatCalled.getExtras().getString(GhostGame.nameWinnerKey);
+        Bundle extras = activityThatCalled.getExtras();
+        String nameWinner = extras.getString(GhostGame.nameWinnerKey);
         winnerText.setText(getString(R.string.results_text_winner1) + " " + nameWinner + getString(R.string.results_text_winner2));
+        updateHighscores(nameWinner);
+    }
+
+    private void updateHighscores(String nameWinner) {
+        HighscoresData highscoresData = new HighscoresData(getApplicationContext());
+        Hashtable<String, Integer> highscores = highscoresData.getNamesAndScores();
+        int scoreWinner = highscores.get(nameWinner);
+        scoreWinner++;
+        highscoresData.addNameAndScore(getApplicationContext(), nameWinner, scoreWinner);
     }
 
     @Override
@@ -59,8 +70,8 @@ public class Results extends Activity {
     }
 
     public void onMainMenuClick(View view) {
-        Intent goToMainMenu = new Intent(getApplicationContext(), MainMenu.class);
-        startActivity(goToMainMenu);
+        //Intent goToMainMenu = new Intent(getApplicationContext(), MainMenu.class);
+        //startActivity(goToMainMenu);
         finish();
     }
 }

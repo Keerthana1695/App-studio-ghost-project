@@ -98,6 +98,9 @@ public class PlayerSelect extends Activity {
         players.addPlayerName(getApplicationContext(), name);
         playerNames = players.getPlayerNames();
         spinnerAdapter.notifyDataSetChanged();
+        // Add the player to the highscore list with score 0...
+        HighscoresData highscoresData = new HighscoresData(getApplicationContext());
+        highscoresData.addNameAndScore(getApplicationContext(), name, 0);
     }
 
     public void onPlayClick(View view) {

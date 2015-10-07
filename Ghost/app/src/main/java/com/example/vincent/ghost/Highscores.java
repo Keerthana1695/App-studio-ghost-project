@@ -8,17 +8,53 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Hashtable;
+import java.util.Map;
+
 //public class Highscores extends AppCompatActivity {
 public class Highscores extends Activity {
-
-    private ArrayAdapter theAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_highscores);
         ListView theListView = (ListView) findViewById(R.id.highscores_listView);
-        //theAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, ArrayList here...)
+        Player[] arrayAdaperData = getArrayAdapterData();
+        ArrayAdapter theAdapter = new MyCustomAdapter(getApplicationContext(), arrayAdaperData);
+        theListView.setAdapter(theAdapter);
+    }
+
+    private Player[] getArrayAdapterData() {
+        HighscoresData highscoresData = new HighscoresData(getApplicationContext());
+        Hashtable<String, Integer> highscores = highscoresData.getNamesAndScores();
+        ArrayList<Map.Entry<String, Integer>> sortedHighscores = sortByValues(highscores);
+        Player[] data = new Player[sortedHighscores.size()];
+        String name;
+        int score;
+        Player player;
+        for(int i=0; i<sortedHighscores.size(); i++) {
+            name = sortedHighscores.get(i).getKey();
+            score = sortedHighscores.get(i).getValue();
+            player = new Player(name, score, i + 1);
+            data[i] = player;
+        }
+        return data;
+    }
+
+    // Source: http://stackoverflow.com/questions/5176771/sort-hashtable-by-values
+    private ArrayList<Map.Entry<String, Integer>> sortByValues(Hashtable<String, Integer> unsortedHashtable) {
+        // Transfer as List and sort it.
+        ArrayList<Map.Entry<String, Integer>> sortedArrayList = new ArrayList(unsortedHashtable.entrySet());
+        Collections.sort(sortedArrayList, new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> lhs, Map.Entry<String, Integer> rhs) {
+                return rhs.getValue().compareTo(lhs.getValue());
+            }
+        });
+        return sortedArrayList;
     }
 
     @Override

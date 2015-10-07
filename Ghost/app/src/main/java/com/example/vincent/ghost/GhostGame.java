@@ -76,7 +76,7 @@ public class GhostGame extends Activity {
         }
         game = new Game(lexicon);
         setImageTurnAndPlayerText();
-        Toast.makeText(getApplication(), "Player " + game.turn() + " starts the game. Good luck!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplication(), getString(R.string.ghost_game_text_start1) + " " + game.turn() + " " + getString(R.string.ghost_game_text_start2), Toast.LENGTH_SHORT).show();
     }
 
     private void setImageTurnAndPlayerText() {
@@ -144,7 +144,7 @@ public class GhostGame extends Activity {
                     startActivity(goToResults);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "New round!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.ghost_game_text_new_round), Toast.LENGTH_SHORT).show();
                     game.startNewRound();
                     wordFormed.setText("");
                 }
@@ -153,7 +153,7 @@ public class GhostGame extends Activity {
             setImageTurnAndPlayerText();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Please enter a valid letter!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.ghost_game_text_invalid_input), Toast.LENGTH_SHORT).show();
         }
     }
 
