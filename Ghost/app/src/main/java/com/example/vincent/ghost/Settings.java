@@ -2,6 +2,7 @@ package com.example.vincent.ghost;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class Settings extends Activity {
     public static final String languageKey = "languageKey";
     public static final String dutchLanguage = "DUTCH";
     public static final String englishLanguage = "ENGLISH";
+    public static final String languageChangedKey = "languageChangedKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,21 @@ public class Settings extends Activity {
 
         // Finish this activity.
         if (id == R.id.action_back) {
+            Intent activityThatCalled = getIntent();
+            Bundle extras = activityThatCalled.getExtras();
+            String nameActivityThatCalled = extras.getString(MainMenu.activityThatCalledKey);
+            if(nameActivityThatCalled.equals(GhostGame.activityName)) {
+                String setLanguageBeforeCall = extras.getString(GhostGame.setLanguageBeforeCallKey, "");
+                String setLanguage = prefs.getString(languageKey, "");
+                Intent goToGhostGame = new Intent();
+                if(!setLanguageBeforeCall.equals(setLanguage)) {
+                    goToGhostGame.putExtra(languageChangedKey, true);
+                }
+                else {
+                    goToGhostGame.putExtra(languageChangedKey, false);
+                }
+                setResult(RESULT_OK, goToGhostGame);
+            }
             finish();
             return true;
         }

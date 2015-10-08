@@ -4,16 +4,25 @@ public class Game {
 
     // Properties of the class...
     private Lexicon lexicon;
-    private String wordFormed;
     private String lettersPlayer1, lettersPlayer2;
     private int playerTurn;
+    private String wordFormed;
 
     public Game(Lexicon lexicon) {
         this.lexicon = lexicon;
-        wordFormed = "";
         lettersPlayer1 = ".....";
         lettersPlayer2 = ".....";
         playerTurn = 1;
+        wordFormed = "";
+    }
+
+    public Game(Lexicon lexicon, String lettersPlayer1, String lettersPlayer2,
+                int playerTurn, String wordFormed) {
+        this.lexicon = lexicon;
+        this.lettersPlayer1 = lettersPlayer1;
+        this.lettersPlayer2 = lettersPlayer2;
+        this.playerTurn = playerTurn;
+        this.wordFormed = wordFormed;
     }
 
     public int turn() {

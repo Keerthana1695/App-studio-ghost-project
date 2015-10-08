@@ -124,6 +124,8 @@ public class PlayerSelect extends Activity {
         }
     }
 
+    // Necessary?
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);

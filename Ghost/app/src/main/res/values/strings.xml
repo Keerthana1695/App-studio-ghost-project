@@ -17,11 +17,15 @@
     <string name="main_menu_text_settings">Settings</string>
     <string name="main_menu_text_exit">Exit</string>
 
+    <!-- ResumeGameDialogFragment -->
+    <string name="resume_game_dialog_text_title">Confirm resume game</string>
+    <string name="resume_game_dialog_text_message">The application has detected an unfinished game. Do you want to resume this game?</string>
+    <string name="resume_game_dialog_text_positive_button">@android:string/ok</string>
+    <string name="resume_game_dialog_text_negative_button">@android:string/cancel</string>
+
     <!-- ExitDialogFragment -->
     <string name="exit_dialog_text_title">Confirm exit</string>
     <string name="exit_dialog_text_message">Are you sure you want to exit?</string>
-    <string name="exit_dialog_text_positive_button">@android:string/ok</string>
-    <string name="exit_dialog_text_negative_button">@android:string/cancel</string>
     <string name="exit_dialog_text_toast">Exit cancled.</string>
 
     <!-- HowToPlay -->
@@ -59,6 +63,9 @@
     <string name="title_activity_highscores">Highscores</string>
     <string name="highscores_text_title">Highscores</string>
 
+    <!-- MyCustomAdapter -->
+    <string name="my_custom_adapter_text_image">Medal</string>
+
     <!-- HighscoresData -->
     <string name="highscores_data_text_retrieval_error">Error retrieving highscores.</string>
     <string name="highscores_data_text_save_error">Error saving highscore.</string>
@@ -76,6 +83,7 @@
     <string name="ghost_game_text_start2">starts the game. Good luck!</string>
     <string name="ghost_game_text_new_round">New round!</string>
     <string name="ghost_game_text_invalid_input">Please enter a valid letter!</string>
+    <string name="ghost_game_text_language_not_changed">Language not changed.</string>
 
     <!-- Results -->
     <string name="title_activity_results">Results</string>

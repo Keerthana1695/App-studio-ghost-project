@@ -15,10 +15,4 @@
         android:orderInCategory="101"
         app:showAsAction="never"
         android:id="@+id/action_change_language"/>
-
-    <item
-        android:title="@string/action_change_player_names"
-        android:orderInCategory="102"
-        app:showAsAction="never"
-        android:id="@+id/action_change_player_names"/>
 </menu>
