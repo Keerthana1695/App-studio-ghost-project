@@ -9,10 +9,13 @@ The goal of this project is to implement the game <i>Ghost</i> as a native Andro
 
 ### How to run this project ###
 
-* Download this project as a .zip file (see the 'Download ZIP' option on the right side of the screen) and extract the file to a location of your preference (e.g., your Desktop environment).
+* Go to 'release'.
+* Click on 'beta'.
+* Download the source code as .zip or as .tar.gz.
+* Extract the .zip or .tar.gz file to a location of your preference (e.g., your Desktop environment).
 * Open Android Studio (if Android Studio is not present on your computer, you can download it from [here](https://developer.android.com/sdk/index.html).).
 * Under 'Quick Start' select 'Open an existing Android Studio project'.
-* Go to the location where you have extracted the .zip file (e.g., your Desktop environment) and exapand the extracted directory (this directory is called 'App-studio-ghost-project-master').
+* Go to the location where you have extracted the .zip file (e.g., your Desktop environment) and exapand the extracted directory (this directory is called 'App-studio-ghost-project-beta').
 * Within the extracted directory, click on the directory called 'Ghost' (do not expand it, just click on the directory name).
 * Click 'OK'.
 * Wait for Android Studio to load/build the project.
