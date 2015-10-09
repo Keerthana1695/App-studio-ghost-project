@@ -20,7 +20,8 @@
             style="@style/ImageViewScreenTitleLinear"/>
 
         <TextView
-            android:text="How to play here..."
+            android:textSize="17sp"
+            android:text="@string/how_to_play_text_explanation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

@@ -77,25 +77,35 @@ public class Settings extends Activity {
 
         // Finish this activity.
         if (id == R.id.action_back) {
-            Intent activityThatCalled = getIntent();
-            Bundle extras = activityThatCalled.getExtras();
-            String nameActivityThatCalled = extras.getString(MainMenu.activityThatCalledKey);
-            if(nameActivityThatCalled.equals(GhostGame.activityName)) {
-                String setLanguageBeforeCall = extras.getString(GhostGame.setLanguageBeforeCallKey, "");
-                String setLanguage = prefs.getString(languageKey, "");
-                Intent goToGhostGame = new Intent();
-                if(!setLanguageBeforeCall.equals(setLanguage)) {
-                    goToGhostGame.putExtra(languageChangedKey, true);
-                }
-                else {
-                    goToGhostGame.putExtra(languageChangedKey, false);
-                }
-                setResult(RESULT_OK, goToGhostGame);
-            }
-            finish();
+            handleBackAction();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        handleBackAction();
+        //super.onBackPressed();
+    }
+
+    private void handleBackAction() {
+        Intent activityThatCalled = getIntent();
+        Bundle extras = activityThatCalled.getExtras();
+        String nameActivityThatCalled = extras.getString(MainMenu.activityThatCalledKey);
+        if(nameActivityThatCalled.equals(GhostGame.activityName)) {
+            String setLanguageBeforeCall = extras.getString(GhostGame.setLanguageBeforeCallKey, "");
+            String setLanguage = prefs.getString(languageKey, "");
+            Intent goToGhostGame = new Intent();
+            if(!setLanguageBeforeCall.equals(setLanguage)) {
+                goToGhostGame.putExtra(languageChangedKey, true);
+            }
+            else {
+                goToGhostGame.putExtra(languageChangedKey, false);
+            }
+            setResult(RESULT_OK, goToGhostGame);
+        }
+        finish();
     }
 }

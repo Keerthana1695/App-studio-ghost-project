@@ -128,6 +128,16 @@
         android:drawableStart="@drawable/play_icon"
         android:drawableLeft="@drawable/play_icon"
         android:onClick="onPlayClick"
+        android:id="@+id/play_textView"
         style="@style/TextViewOptionMainMenu"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:src="@drawable/synchronize_icon"-->
+        <!--android:visibility="invisible"-->
+        <!--android:id="@+id/loading_imageView"/>-->
 
 </RelativeLayout>

@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class GhostGame extends Activity {
     private ImageView playerTurn;
     private TextView wordFormed;
     private EditText playerInput;
+    private Button enterButton;
     private Game game;
     private SharedPreferences prefs;
     private final List<String> validInput = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
@@ -48,7 +50,6 @@ public class GhostGame extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ghost_game);
-        System.out.println("In 'onCreate' in 'GhostGame'...");
         initializeViews();
         prefs = getSharedPreferences(Settings.prefsName, MODE_PRIVATE);
         boolean savedGame = prefs.getBoolean(savedGameKey, false);
@@ -86,6 +87,7 @@ public class GhostGame extends Activity {
         playerTurn = (ImageView) findViewById(R.id.turn_imageView);
         wordFormed = (TextView) findViewById(R.id.word_textView);
         playerInput = (EditText) findViewById(R.id.player_input_editText);
+        enterButton = (Button) findViewById(R.id.enter_button);
     }
 
     private void setPlayerNames() {
@@ -116,14 +118,16 @@ public class GhostGame extends Activity {
     private void createNewGame(Lexicon lexicon) {
         game = new Game(lexicon);
         setImageTurnAndPlayerText();
-        Toast.makeText(getApplication(), getString(R.string.ghost_game_text_start1) + " " + game.turn() + " " + getString(R.string.ghost_game_text_start2), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplication(), getString(R.string.ghost_game_text_start1) + " " + game.turn() + " " +
+                getString(R.string.ghost_game_text_start2), Toast.LENGTH_SHORT).show();
     }
 
     private void createSavedGame(Lexicon lexicon, String lettersPlayer1, String lettersPlayer2,
                                  int playerTurn, String wordFormed) {
         game = new Game(lexicon, lettersPlayer1, lettersPlayer2, playerTurn, wordFormed);
         setImageTurnAndPlayerText();
-        Toast.makeText(getApplication(), getString(R.string.ghost_game_text_start1) + " " + game.turn() + " " + getString(R.string.ghost_game_text_start2), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplication(), getString(R.string.ghost_game_text_start1) + " " + game.turn() + " " +
+                getString(R.string.ghost_game_text_start2), Toast.LENGTH_SHORT).show();
     }
 
     private void setImageTurnAndPlayerText() {
@@ -154,7 +158,8 @@ public class GhostGame extends Activity {
         int id = item.getItemId();
 
         if(id == R.id.action_new_game) {
-            setSavedGameToFalse();
+            setSavedGameToFalse(); // Important!
+            System.out.println("savedGame set to false...");
             Intent goToPlayerSelect = new Intent(getApplication(), PlayerSelect.class);
             startActivity(goToPlayerSelect);
             finish();
@@ -176,8 +181,8 @@ public class GhostGame extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("In onActivityResult in 'GhostGame'...");
         setSavedGameToFalse(); // Important!
+        System.out.println("savedGame set to false...");
         boolean languageChanged = data.getBooleanExtra(Settings.languageChangedKey, false);
         if(languageChanged) {
             Intent goToPlayerSelect = new Intent(getApplication(), PlayerSelect.class);
@@ -190,12 +195,13 @@ public class GhostGame extends Activity {
     }
 
     public void onInputButtonClick(View view) {
+        enterButton.setEnabled(false);
         if(processInput()) {
             if (game.endRound()) {
                 setLettersLosingPlayer();
                 if (game.ended()) {
                     wordFormed.setText("");
-                    //setSavedGameToFalse();
+                    setSavedGameToFalse(); // Important!
                     int winner = game.winner();
                     Intent goToResults = new Intent(getApplicationContext(), Results.class);
                     if(winner == 1) {
@@ -217,6 +223,7 @@ public class GhostGame extends Activity {
         else {
             Toast.makeText(getApplicationContext(), getString(R.string.ghost_game_text_invalid_input), Toast.LENGTH_SHORT).show();
         }
+        enterButton.setEnabled(true);
     }
 
     private boolean processInput() {
@@ -251,9 +258,19 @@ public class GhostGame extends Activity {
     }
 
     @Override
+    public void onBackPressed() {
+        saveGameState();
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        System.out.println("In 'onSaveInstanceState' in 'GhostGame'...");
+        saveGameState();
+    }
+
+    private void saveGameState() {
+        System.out.println("In 'saveGameState' in 'GhostGame'...");
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(namePlayer1Key, namePlayer1);
         editor.putString(namePlayer2Key, namePlayer2);

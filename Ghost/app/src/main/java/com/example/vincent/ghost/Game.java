@@ -40,11 +40,11 @@ public class Game {
     // A new round starts when:
     // 1: No valid word can be formed, or
     // 2: A word longer than 3 letters has been formed, or
-    // 3: The only possible word has been formed (can be omitted if 2 is used).
+    // (3: The only possible word has been formed (can be omitted if 2 is used)).
     public boolean endRound() {
         return ((lexicon.count() == 0) ||
-                (wordFormed.length() > 3 && lexicon.getFilteredLexicon().contains(wordFormed)) ||
-                (lexicon.count() == 1 && wordFormed.equals(lexicon.result())));
+                (wordFormed.length() > 3 && lexicon.getFilteredLexicon().contains(wordFormed)));
+//                || (lexicon.count() == 1 && wordFormed.equals(lexicon.result())));
     }
 
     public void setLettersPlayer1() {

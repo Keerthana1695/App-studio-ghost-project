@@ -2,14 +2,19 @@ package com.example.vincent.ghost;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -112,6 +117,8 @@ public class PlayerSelect extends Activity {
         else {
             String namePlayer1 = objectNamePlayer1.toString();
             String namePlayer2 = objectNamePlayer2.toString();
+//            final String namePlayer1 = objectNamePlayer1.toString();
+//            final String namePlayer2 = objectNamePlayer2.toString();
             if (namePlayer1.equals(namePlayer2)) {
                 Toast.makeText(getApplicationContext(), R.string.player_select_text_same_name, Toast.LENGTH_SHORT).show();
             } else {
@@ -120,6 +127,25 @@ public class PlayerSelect extends Activity {
                 goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
                 startActivity(goToGhostGame);
                 finish();
+
+//                Animation.
+//                TextView playTextView = (TextView) findViewById(R.id.play_textView);
+//                ImageView loadingImageView = (ImageView) findViewById(R.id.loading_imageView);
+//                playTextView.setVisibility(View.INVISIBLE);
+//                loadingImageView.setVisibility(View.VISIBLE);
+//                RotateAnimation rotate = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+//                rotate.setDuration(15000);
+//                loadingImageView.setAnimation(rotate);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
+//                        goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
+//                        goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
+//                        startActivity(goToGhostGame);
+//                        finish();
+//                    }
+//                }, 15000);
             }
         }
     }

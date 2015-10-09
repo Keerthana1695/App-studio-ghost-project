@@ -23,7 +23,7 @@ public class ExitDialogFragment extends DialogFragment {
             }
         });
 
-        theDialog.setNegativeButton(R.string.resume_game_dialog_text_negative_button, new DialogInterface.OnClickListener() {
+        theDialog.setNegativeButton(R.string.exit_dialog_text_negative_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(), R.string.exit_dialog_text_toast, Toast.LENGTH_SHORT).show();

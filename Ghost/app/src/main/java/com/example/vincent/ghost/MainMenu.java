@@ -49,7 +49,6 @@ public class MainMenu extends Activity {
     public void onStartAGameClick(View view) {
         SharedPreferences prefs = getSharedPreferences(Settings.prefsName, MODE_PRIVATE);
         boolean savedGame = prefs.getBoolean(GhostGame.savedGameKey, false);
-        System.out.println("Value of 'savedGame' in 'MainMenu': " + String.valueOf(savedGame));
         if(!savedGame) {
             Intent goToPlayerSelect = new Intent(getApplicationContext(), PlayerSelect.class);
             startActivity(goToPlayerSelect);
@@ -77,6 +76,16 @@ public class MainMenu extends Activity {
     }
 
     public void onExitClick(View view) {
+        handleExit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        handleExit();
+        //super.onBackPressed();
+    }
+
+    private void handleExit() {
         DialogFragment myExitDialogFragment = new ExitDialogFragment();
         myExitDialogFragment.show(getFragmentManager(), "theExitDialog");
     }
