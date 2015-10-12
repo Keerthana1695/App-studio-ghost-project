@@ -1,13 +1,31 @@
+/*
+ * Game.java
+ *
+ * A model class that represents a single game. This model class implements all relevant game rules
+ * and uses a Lexicon instance (see Lexicon.java) to serve as the lexicon.
+ *
+ * Author: Vincent Erich
+ * Version: October, 2015
+ */
+
 package com.example.vincent.ghost;
+
+import android.content.Context;
+import android.widget.Toast;
 
 public class Game {
 
-    // Properties of the class...
+    /*
+     * Properties of the class.
+     */
     private Lexicon lexicon;
     private String lettersPlayer1, lettersPlayer2;
     private int playerTurn;
     private String wordFormed;
 
+    /*
+     * Constructor of the class. This constructor is called when a nem game is started.
+     */
     public Game(Lexicon lexicon) {
         this.lexicon = lexicon;
         lettersPlayer1 = ".....";
@@ -16,6 +34,9 @@ public class Game {
         wordFormed = "";
     }
 
+    /*
+     * Constructor of the class. This constructor is called when a saved game is resumed.
+     */
     public Game(Lexicon lexicon, String lettersPlayer1, String lettersPlayer2,
                 int playerTurn, String wordFormed) {
         this.lexicon = lexicon;
@@ -25,28 +46,53 @@ public class Game {
         this.wordFormed = wordFormed;
     }
 
+    /*
+     * Returns the property 'playerTurn' (i.e., which player is up for guessing, 1 or 2).
+     */
     public int turn() {
         return playerTurn;
     }
 
+    /*
+     * Sets the value of the property 'wordFormed' (i.e., the word formed thus far).
+     */
     public void setWordFormed(String word) {
         wordFormed = word;
     }
 
-    public void guess(String input) {
-        lexicon.filter(input);
+    /*
+     * Uses the Lexicon instance to decide (see Lexicon.java).
+     */
+    public void guess() {
+        lexicon.filter(wordFormed);
     }
 
-    // A new round starts when:
-    // 1: No valid word can be formed, or
-    // 2: A word longer than 3 letters has been formed, or
-    // (3: The only possible word has been formed (can be omitted if 2 is used)).
-    public boolean endRound() {
-        return ((lexicon.count() == 0) ||
-                (wordFormed.length() > 3 && lexicon.getFilteredLexicon().contains(wordFormed)));
-//                || (lexicon.count() == 1 && wordFormed.equals(lexicon.result())));
+    /*
+     * Returns a boolean that indicates whether a round has ended. A round has ended when:
+     * 1) No valid word can be formed, or
+     * 2) A word longer than 3 letters has been formed.
+     * If a round has ended, a toast with the reason for this is shown.
+     */
+    public boolean endRound(Context context) {
+        if(lexicon.count() == 0) {
+            Toast.makeText(context, "'" + wordFormed + "' " +
+                           context.getString(R.string.game_text_no_valid_word), Toast.LENGTH_LONG).show();
+            return true;
+        }
+        else if(wordFormed.length() > 3 && lexicon.getFilteredLexicon().contains(wordFormed)) {
+            Toast.makeText(context, "'" + wordFormed + "' " +
+                           context.getString(R.string.game_text_valid_word), Toast.LENGTH_LONG).show();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
+    /*
+     * Sets the value of the property 'lettersPlayer1' (i.e., the letters that player 1 has) based
+     * on the current value of the property.
+     */
     public void setLettersPlayer1() {
         switch(lettersPlayer1) {
             case ".....":
@@ -66,6 +112,10 @@ public class Game {
         }
     }
 
+    /*
+     * Sets the value of the property 'lettersPlayer2' (i.e., the letters that player 2 has) based
+     * on the current value of the property.
+     */
     public void setLettersPlayer2() {
         switch(lettersPlayer2) {
             case ".....":
@@ -85,24 +135,41 @@ public class Game {
         }
     }
 
-
+    /*
+     * Returns the property 'lettersPlayer1' (i.e., the letters that player 1 has).
+     */
     public String getLettersPlayer1() {
         return lettersPlayer1;
     }
 
+    /*
+     * Returns the property 'lettersPlayer2' (i.e., the letters that player 2 has).
+     */
     public String getLettersPlayer2() {
         return lettersPlayer2;
     }
 
+    /*
+     * Resets the lexicon (see Lexicon.java) and the value of the property 'wordFormed' (i.e., the
+     * word formed thus far).
+     */
     public void startNewRound() {
         lexicon.reset();
         wordFormed = "";
     }
 
+    /*
+     * Returns a boolean that indicates whether a game has ended. A game has ended when:
+     * 1) 'lettersPlayer1' is equal to 'GHOST', or
+     * 2) 'lettersPlayer2' is equal to 'GHOST'.
+     */
     public boolean ended() {
         return (lettersPlayer1.equals("GHOST") || lettersPlayer2.equals("GHOST"));
     }
 
+    /*
+     * Returns an int that indicates which player has won the game (1 or 2).
+     */
     public int winner() {
         if(lettersPlayer1.equals("GHOST")) {
             return 2;
@@ -112,6 +179,10 @@ public class Game {
         }
     }
 
+    /*
+     * Sets the value of the property 'playerTurn' (i.e., which player is up for guessing) based on
+     * the current value of the property.
+     */
     public void changeTurn() {
         if(playerTurn == 1) {
             playerTurn = 2;

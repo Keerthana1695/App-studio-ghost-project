@@ -26,8 +26,9 @@
     <!-- ExitDialogFragment -->
     <string name="exit_dialog_text_title">Confirm exit</string>
     <string name="exit_dialog_text_message">Are you sure you want to exit?</string>
+    <string name="exit_dialog_text_positive_button">@android:string/ok</string>
     <string name="exit_dialog_text_negative_button">@android:string/cancel</string>
-    <string name="exit_dialog_text_toast">Exit cancled.</string>
+    <string name="exit_dialog_text_toast">Exit canceled.</string>
 
     <!-- HowToPlay -->
     <string name="title_activity_how_to_play">How to play</string>
@@ -98,9 +99,13 @@
     <string name="ghost_game_text_button">Enter</string>
     <string name="ghost_game_text_start1">Player</string>
     <string name="ghost_game_text_start2">starts the game. Good luck!</string>
-    <string name="ghost_game_text_new_round">New round!</string>
     <string name="ghost_game_text_invalid_input">Please enter a valid letter!</string>
     <string name="ghost_game_text_language_not_changed">Language not changed.</string>
+    <string name="ghost_game_text_game_saved">Game saved.</string>
+
+    <!-- Game -->
+    <string name="game_text_no_valid_word">cannot become a valid word.</string>
+    <string name="game_text_valid_word">is a valid word longer than three letters.</string>
 
     <!-- Results -->
     <string name="title_activity_results">Results</string>
