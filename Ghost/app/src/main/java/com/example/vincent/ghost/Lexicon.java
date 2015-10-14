@@ -1,6 +1,20 @@
+/*
+ * Lexicon.java
+ *
+ * A model class that represents a list of words in Dutch or English (i.e., a lexicon) that can be
+ * filtered by prefix.
+ *
+ * Author: Vincent Erich
+ * Version: October, 2015
+ */
+
 package com.example.vincent.ghost;
 
+/*
+ * Necessary import statements.
+ */
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -12,28 +26,38 @@ import java.util.Iterator;
 
 public class Lexicon {
 
-    // Properties of the class...
+    /*
+     * Properties of the class. 'baseLexicon' is the base lexicon and 'filteredLexicon' is the
+     * lexicon used for filtering. The base lexicon remains unchanged so that it can be re-used.
+     */
     private HashSet<String> baseLexicon;
     private HashSet<String> filteredLexicon;
 
+    /*
+     * Constructor of the class.
+     */
     public Lexicon(Context context, String language) {
         baseLexicon = new HashSet<>();
         filteredLexicon = new HashSet<>();
-        createBaseLexicon(context, language);
-        filteredLexicon.addAll(baseLexicon);
+        fillBaseLexicon(context, language);
+        filteredLexicon.addAll(baseLexicon);    // Adds all the elements (i.e. words) in 'baseLexicon'
+                                                // to 'filteredLexicon'.
     }
 
-    // Methods of the class...
-
-    private void createBaseLexicon(Context context, String language) {
-        // Create the base lexicon. Use the String argument to read the right text file.
+    /*
+     * Fills the base lexicon (i.e., the HashSet) with words from either 'dutch.txt' or
+     * 'english.txt' (these files can be found in the 'assets' folder). Which text file is used,
+     * depends on the value of the string argument ('language').
+     */
+    private void fillBaseLexicon(Context context, String language) {
         try {
             InputStream inputStream;
+            AssetManager assets = context.getResources().getAssets();
             if(language.equals(Settings.dutchLanguage)) {
-                inputStream = context.getResources().getAssets().open("dutch.txt");
+                inputStream = assets.open("dutch.txt");
             }
             else {
-                inputStream = context.getResources().getAssets().open("english.txt");
+                inputStream = assets.open("english.txt");
             }
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
@@ -47,43 +71,44 @@ public class Lexicon {
         }
     }
 
+    /*
+     * Filters the lexicon (i.e., 'filteredLexicon') using a string as input. A second HashSet is
+     * used ('resultLexicon') to prevent a 'ConcurrentModificationException' to be thrown.
+     */
     public void filter (String input) {
-        // Filter the word list using the String argument. Because loading the base lexicon takes
-        // quite a bit of time, this method does not destroy the base lexicon and thus allows it to
-        // be re-used.
-        // Use an 'iteratorHashSet' to prevent a 'ConcurrentModificationException' to be thrown.
-        HashSet<String> iteratorHashSet = new HashSet<>();
-        iteratorHashSet.addAll(filteredLexicon);
-        Iterator<String> iterator = iteratorHashSet.iterator();
+        HashSet<String> resultLexicon = new HashSet<>();
+        Iterator<String> iterator = filteredLexicon.iterator();
         String word;
         while(iterator.hasNext()) {
             word = iterator.next();
-            if(!word.startsWith(input)) {
-                filteredLexicon.remove(word);
+            if(word.startsWith(input)) {
+                resultLexicon.add(word);
             }
         }
+        filteredLexicon = resultLexicon;
     }
 
+    /*
+     * Returns the number of words in 'filteredLexicon' (i.e., the number of words in the filtered
+     * word list).
+     */
     public int count() {
-        // Return the number of words in the filtered list.
         return filteredLexicon.size();
     }
 
-    public String result() {
-        // Return the single remaining word in the filtered list. If the filtered list contains
-        // more than one word, return null.
-        if(count() == 1) {
-            return filteredLexicon.iterator().next();
-        }
-        return null;
-    }
 
+    /*
+     * Removes all the elements (i.e., words) from 'filteredLexicon' and fills it with all the
+     * elements in 'baseLexicon'.
+     */
     public void reset() {
-        // Remove the filter and re-start with the original (base) lexicon.
         filteredLexicon.clear();
         filteredLexicon.addAll(baseLexicon);
     }
 
+    /*
+     * Returns the property 'filteredLexicon' (i.e., the filtered word list).
+     */
     public HashSet<String> getFilteredLexicon() {
         return filteredLexicon;
     }

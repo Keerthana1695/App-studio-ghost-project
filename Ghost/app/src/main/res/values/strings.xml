@@ -74,6 +74,7 @@
     <string name="players_text_retrieval_error">Error retrieving player names.</string>
     <string name="players_text_duplicate_player">Player name already exists.</string>
     <string name="players_text_empty_name">Please enter a player name.</string>
+    <string name="players_text_long_name">Player name cannot contain more than 15 characters.</string>
     <string name="players_text_save_error">Error saving player name.</string>
     <string name="players_text_player_added">Player name added.</string>
 
@@ -90,9 +91,9 @@
 
     <!-- Lexicon -->
     <string name="lexicon_text_retrieval_error">Error retrieving the word list.</string>
-    <string name="title_activity_ghost_game">Ghost game</string>
 
     <!-- GhostGame -->
+    <string name="title_activity_ghost_game">Ghost game</string>
     <string name="ghost_game_text_initial_letters_player">.....</string>
     <string name="ghost_game_text_image">Player turn</string>
     <string name="ghost_game_text_hint">Enter a letter</string>

@@ -1,7 +1,7 @@
 /*
  * GhostGame.java
  *
- * The Ghost game Activity. This Activity allows the players to actually play the game.
+ * The Ghost game Activity. This Activity allows the user(s) to actually play the game.
  *
  * Author: Vincent Erich
  * Version: October, 2015
@@ -280,7 +280,7 @@ public class GhostGame extends Activity {
      */
     private void handleChangeLanguageOption() {
         Intent goToSettings = new Intent(getApplicationContext(), Settings.class);
-        goToSettings.putExtra(MainMenu.activityThatCalledKey, activityName);
+        goToSettings.putExtra(Settings.activityThatCalledKey, activityName);
         String setLanguageBeforeCall = prefs.getString(Settings.languageKey, "");
         goToSettings.putExtra(setLanguageBeforeCallKey, setLanguageBeforeCall);
         int result = 1;

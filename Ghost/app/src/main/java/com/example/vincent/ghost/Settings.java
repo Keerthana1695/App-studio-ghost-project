@@ -20,6 +20,7 @@ public class Settings extends Activity {
     public static final String languageKey = "languageKey";
     public static final String dutchLanguage = "DUTCH";
     public static final String englishLanguage = "ENGLISH";
+    public static final String activityThatCalledKey = "activityThatCalledKey";
     public static final String languageChangedKey = "languageChangedKey";
 
     @Override
@@ -93,7 +94,7 @@ public class Settings extends Activity {
     private void handleBackAction() {
         Intent activityThatCalled = getIntent();
         Bundle extras = activityThatCalled.getExtras();
-        String nameActivityThatCalled = extras.getString(MainMenu.activityThatCalledKey);
+        String nameActivityThatCalled = extras.getString(activityThatCalledKey);
         if(nameActivityThatCalled.equals(GhostGame.activityName)) {
             String setLanguageBeforeCall = extras.getString(GhostGame.setLanguageBeforeCallKey, "");
             String setLanguage = prefs.getString(languageKey, "");

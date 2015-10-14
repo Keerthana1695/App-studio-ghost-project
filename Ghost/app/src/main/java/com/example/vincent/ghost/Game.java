@@ -24,7 +24,7 @@ public class Game {
     private String wordFormed;
 
     /*
-     * Constructor of the class. This constructor is called when a nem game is started.
+     * Constructor of the class. This constructor is called when a new game is started.
      */
     public Game(Lexicon lexicon) {
         this.lexicon = lexicon;

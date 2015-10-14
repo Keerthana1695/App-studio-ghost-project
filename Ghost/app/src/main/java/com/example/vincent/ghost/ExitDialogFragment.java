@@ -1,8 +1,9 @@
 /*
  * ExitDialogFragment.java
  *
- * A dialog that asks the user whether he/she is sure to exit the game. This dialog is shown when
- * the user presses the exit icon or the physical back button in the main menu (MainMenu.java).
+ * This class implements a dialog that asks the user whether he/she is sure to exit the game. This
+ * dialog is shown when the user presses the 'Exit' TextView or the physical back button in the main
+ * menu (see MainMenu.java).
  *
  * Author: Vincent Erich
  * Version: October, 2015
