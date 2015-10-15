@@ -1,9 +1,9 @@
 /*
  * ExitDialogFragment.java
  *
- * This class implements a dialog that asks the user whether he/she is sure to exit the game. This
- * dialog is shown when the user presses the 'Exit' TextView or the physical back button in the main
- * menu (see MainMenu.java).
+ * This class implements a dialog that asks the user(s) whether he/she/(they) is/are sure to exit
+ * the game. This dialog is shown when the user presses the 'Exit' TextView or the physical back
+ * button in the main menu (see MainMenu.java).
  *
  * Author: Vincent Erich
  * Version: October, 2015
@@ -23,6 +23,9 @@ import android.widget.Toast;
 
 public class ExitDialogFragment extends DialogFragment {
 
+    /*
+     * Builds a custom Dialog container.
+     */
     @Override
     public Dialog onCreateDialog (Bundle savedInstanceState) {
         /*
@@ -33,8 +36,8 @@ public class ExitDialogFragment extends DialogFragment {
         theDialog.setMessage(R.string.exit_dialog_text_message);
 
         /*
-         * Implements the behaviour of the positive button ('OK'). If the positive button is
-         * clicked, the activity will be finished (i.e., MainMenu.java).
+         * Implements the behaviour of the positive button (i.e., 'OK'). If the positive button is
+         * clicked, the Activity will be finished (i.e., MainMenu.java).
          */
         theDialog.setPositiveButton(R.string.exit_dialog_text_positive_button, new DialogInterface.OnClickListener() {
             @Override
@@ -44,8 +47,9 @@ public class ExitDialogFragment extends DialogFragment {
         });
 
         /*
-         * Implements the behaviour of the negative button ('Cancel'). If the negative button is
-         * clicked, nothing happens (a toast is shown indicating that the exit has been canceled).
+         * Implements the behaviour of the negative button (i.e., 'Cancel'). If the negative button is
+         * clicked, nothing happens (a toast will be shown indicating that the exit has been
+         * canceled).
          */
         theDialog.setNegativeButton(R.string.exit_dialog_text_negative_button, new DialogInterface.OnClickListener() {
             @Override

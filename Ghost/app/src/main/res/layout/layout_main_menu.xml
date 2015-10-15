@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/ghost_imageView"
         android:layout_marginTop="70dp"
-        android:rowCount="2"
+        android:rowCount="3"
         android:columnCount="2"
         android:orientation="horizontal"
         android:id="@+id/containing_gridLayout">
@@ -39,7 +39,6 @@
         <TextView
             android:text="@string/main_menu_text_start_a_game"
             android:drawableStart="@drawable/play_icon"
-            android:drawableLeft="@drawable/play_icon"
             android:onClick="onStartAGameClick"
             android:id="@+id/start_a_game_textView"
             style="@style/TextViewOptionMainMenu"/>
@@ -47,7 +46,6 @@
         <TextView
             android:text="@string/main_menu_text_highscores"
             android:drawableStart="@drawable/trophy_icon"
-            android:drawableLeft="@drawable/trophy_icon"
             android:onClick="onHighscoresClickInMainMenu"
             android:id="@+id/highscores_textView"
             style="@style/TextViewOptionMainMenu"/>
@@ -55,7 +53,6 @@
         <TextView
             android:text="@string/main_menu_text_how_to_play"
             android:drawableStart="@drawable/info_icon"
-            android:drawableLeft="@drawable/info_icon"
             android:onClick="onHowToPlayClick"
             android:id="@+id/how_to_play_textView"
             style="@style/TextViewOptionMainMenu"/>
@@ -63,21 +60,24 @@
         <TextView
             android:text="@string/main_menu_text_settings"
             android:drawableStart="@drawable/settings_icon"
-            android:drawableLeft="@drawable/settings_icon"
             android:onClick="onSettingsClick"
             android:id="@+id/settings_textView"
             style="@style/TextViewOptionMainMenu"/>
 
-    </GridLayout>
+        <TextView
+            android:text="@string/main_menu_text_credits"
+            android:drawableStart="@drawable/credits_icon"
+            android:onClick="onCreditsClick"
+            android:id="@+id/credits_textView"
+            style="@style/TextViewOptionMainMenu"/>
 
-    <TextView
-        android:text="@string/main_menu_text_exit"
-        android:drawableStart="@drawable/exit_icon"
-        android:drawableLeft="@drawable/exit_icon"
-        android:onClick="onExitClick"
-        android:id="@+id/exit_textView"
-        style="@style/TextViewOptionMainMenu"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:text="@string/main_menu_text_exit"
+            android:drawableStart="@drawable/exit_icon"
+            android:onClick="onExitClick"
+            android:id="@+id/exit_textView"
+            style="@style/TextViewOptionMainMenu"/>
+
+    </GridLayout>
 
 </RelativeLayout>

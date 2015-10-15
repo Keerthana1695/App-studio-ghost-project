@@ -58,10 +58,14 @@ public class Players {
 
     /*
      * Adds a player name to the ArrayList 'playerNames' and saves the player name to the text file
-     * 'players.txt' (which is saved on the device's internal storage). If the player name is
-     * already in the ArrayList, a toast is shown to the user that says that the player name already
-     * exists. Furthermore, if the player name contains only whitespace, a toast is shown to the
-     * user that asks the user to enter a player name.
+     * 'players.txt' (which is saved on the device's internal storage). Furthermore, if the player
+     * name is valid (see below), a HighscoresData instance (see HighscoresData.java) is created
+     * and the player name is added to the highscores with score 0.
+     * If the player name is already in the ArrayList, a toast is shown to the user that says that
+     * the player name already exists. Furthermore, if the player name contains only whitespace, a
+     * toast is shown to the user that asks the user to enter a player name. Also, the player name
+     * cannot contain more than 15 characters.
+     *
      */
     public void addPlayerName(Context context, String name) {
         if(playerNames.contains(name)) {
@@ -83,6 +87,8 @@ public class Players {
             } catch (IOException e) {
                 Toast.makeText(context, R.string.players_text_save_error, Toast.LENGTH_SHORT).show();
             }
+            HighscoresData highscoresData = new HighscoresData(context);
+            highscoresData.addNameAndScore(context, name, 0);
         }
     }
 

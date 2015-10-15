@@ -1,26 +1,38 @@
+/*
+ * PlayerSelect.java
+ *
+ * The player select Activity. This Activity allows the user(s) (player(s)) to set a name for the
+ * game. The user(s) can select a previously entered name, or enter a new name.
+ *
+ * Author: Vincent Erich
+ * Version: October, 2015
+ */
+
 package com.example.vincent.ghost;
 
+/*
+ * Necessary import statements.
+ */
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-//public class PlayerSelect extends AppCompatActivity {
 public class PlayerSelect extends Activity {
+
+    /*
+     * Properties of the class.
+     */
+    public static final String keyPlayer1Name = "player1Name";
+    public static final String keyPlayer2Name = "player2Name";
 
     private Spinner player1Spinner, player2Spinner;
     private EditText player1EditText, player2EditText;
@@ -28,12 +40,9 @@ public class PlayerSelect extends Activity {
     private ArrayList<String> playerNames;
     private ArrayAdapter<String> spinnerAdapter;
 
-    private final String keyPlayer1EditText = "player1EditText";
-    private final String keyPlayer2EditText = "player2EditText";
-
-    public static final String keyPlayer1Name = "player1Name";
-    public static final String keyPlayer2Name = "player2Name";
-
+    /*
+     * Initializes the Activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +53,9 @@ public class PlayerSelect extends Activity {
         addItemsToSpinners();
     }
 
+    /*
+     * Initializes all the (required) views.
+     */
     private void initializeViews() {
         player1Spinner = (Spinner) findViewById(R.id.player1_spinner);
         player2Spinner = (Spinner) findViewById(R.id.player2_spinner);
@@ -51,6 +63,9 @@ public class PlayerSelect extends Activity {
         player2EditText = (EditText) findViewById(R.id.player2_editText);
     }
 
+    /*
+     * Creates a SpinnerAdapter for the two Spinners and adds it to the Spinners.
+     */
     private void addItemsToSpinners() {
         spinnerAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_item, playerNames);
@@ -59,6 +74,9 @@ public class PlayerSelect extends Activity {
         player2Spinner.setAdapter(spinnerAdapter);
     }
 
+    /*
+     * Initializes the contents of the Activity's standard options menu.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -66,6 +84,9 @@ public class PlayerSelect extends Activity {
         return true;
     }
 
+    /*
+     * Handles clicks on the menu options.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -73,7 +94,9 @@ public class PlayerSelect extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        // Finish this activity.
+        /*
+         * Handles on 'Back' click.
+         */
         if (id == R.id.action_back) {
             finish();
             return true;
@@ -82,89 +105,82 @@ public class PlayerSelect extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+     * Handles a click on the 'Add' button for player 1. The method 'addPlayer(...)' is called to
+     * add the player name to the ArrayList with all the player names (defined in Players.java) and
+     * to save the player name for future use. Furthermore, if the player name is valid, the
+     * corresponding Spinner is set to show the entered player name.
+     */
     public void onNameButton1Click(View view) {
         String player1Name = String.valueOf(player1EditText.getText());
         player1EditText.setText("");
         addPlayer(player1Name);
         int spinnerPosition = spinnerAdapter.getPosition(player1Name);
-        player1Spinner.setSelection(spinnerPosition);
-
+        if(spinnerPosition != -1) {
+            player1Spinner.setSelection(spinnerPosition);
+        }
     }
 
+    /*
+     * Handles a click on the 'Add' button for player 2. Similar to the method
+     * 'onNameButton1Click(...)', but now for player 2.
+     */
     public void onNameButton2Click(View view) {
         String player2Name = String.valueOf(player2EditText.getText());
         player2EditText.setText("");
         addPlayer(player2Name);
         int spinnerPosition = spinnerAdapter.getPosition(player2Name);
-        player2Spinner.setSelection(spinnerPosition);
+        if(spinnerPosition != -1) {
+            player2Spinner.setSelection(spinnerPosition);
+        }
     }
 
+    /*
+     * Uses the method 'addPlayerName(...)' (defined in Players.java) to add the player name to the
+     * ArrayList with all the player names (also defined in Players.java), to save the player
+     * name for future use, and to add the player name to the highscores. After adding the
+     * player name, the ArrayAdapter is notified that the data set has changed.
+     */
     private void addPlayer(String name) {
         players.addPlayerName(getApplicationContext(), name);
         playerNames = players.getPlayerNames();
         spinnerAdapter.notifyDataSetChanged();
-        // Add the player to the highscore list with score 0...
-        HighscoresData highscoresData = new HighscoresData(getApplicationContext());
-        highscoresData.addNameAndScore(getApplicationContext(), name, 0);
     }
 
+    /*
+     * Handles a click on the 'Play' TextView. Obtains the objects at the current spinner positions
+     * and first checks whether these objects are not null (this is possible when no player names
+     * have been added before, causing the Spinners to be empty). If the objects are not null, the
+     * player names are obtained, and if the player names are not the same, the user is directed to
+     * the Ghost game Activity (see GhostGame.java).
+     */
     public void onPlayClick(View view) {
         Object objectNamePlayer1 = player1Spinner.getSelectedItem();
         Object objectNamePlayer2 = player2Spinner.getSelectedItem();
         if(objectNamePlayer1 == null || objectNamePlayer2 == null) {
-            Toast.makeText(getApplicationContext(), R.string.player_select_text_no_names, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.player_select_text_no_names,
+                           Toast.LENGTH_SHORT).show();
         }
         else {
             String namePlayer1 = objectNamePlayer1.toString();
             String namePlayer2 = objectNamePlayer2.toString();
-//            final String namePlayer1 = objectNamePlayer1.toString();
-//            final String namePlayer2 = objectNamePlayer2.toString();
             if (namePlayer1.equals(namePlayer2)) {
-                Toast.makeText(getApplicationContext(), R.string.player_select_text_same_name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.player_select_text_same_name,
+                               Toast.LENGTH_SHORT).show();
             } else {
-                Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
-                goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
-                goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
-                startActivity(goToGhostGame);
-                finish();
-
-//                Animation.
-//                TextView playTextView = (TextView) findViewById(R.id.play_textView);
-//                ImageView loadingImageView = (ImageView) findViewById(R.id.loading_imageView);
-//                playTextView.setVisibility(View.INVISIBLE);
-//                loadingImageView.setVisibility(View.VISIBLE);
-//                RotateAnimation rotate = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-//                rotate.setDuration(15000);
-//                loadingImageView.setAnimation(rotate);
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
-//                        goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
-//                        goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
-//                        startActivity(goToGhostGame);
-//                        finish();
-//                    }
-//                }, 15000);
+                startGhostGameActivity(namePlayer1, namePlayer2);
             }
         }
     }
 
-    // Necessary?
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(String.valueOf(player1EditText.getText()), keyPlayer1EditText);
-        outState.putString(String.valueOf(player2EditText.getText()), keyPlayer2EditText);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        String inputPlayer1 = savedInstanceState.getString(keyPlayer1EditText);
-        String inputPlayer2 = savedInstanceState.getString(keyPlayer2EditText);
-        player1EditText.setText(inputPlayer1);
-        player2EditText.setText(inputPlayer2);
+    /*
+     * Directs the user to the Ghost game activity (see GhostGame.java).
+     */
+    private void startGhostGameActivity(String namePlayer1, String namePlayer2) {
+        Intent goToGhostGame = new Intent(getApplicationContext(), GhostGame.class);
+        goToGhostGame.putExtra(keyPlayer1Name, namePlayer1);
+        goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
+        startActivity(goToGhostGame);
+        finish();
     }
 }

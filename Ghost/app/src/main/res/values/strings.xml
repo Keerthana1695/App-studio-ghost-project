@@ -15,47 +15,16 @@
     <string name="main_menu_text_highscores">Highscores</string>
     <string name="main_menu_text_how_to_play">How to play</string>
     <string name="main_menu_text_settings">Settings</string>
+    <string name="main_menu_text_credits">Credits</string>
     <string name="main_menu_text_exit">Exit</string>
 
     <!-- ResumeGameDialogFragment -->
     <string name="resume_game_dialog_text_title">Resume game</string>
-    <string name="resume_game_dialog_text_message">The application has detected an unfinished game. Do you want to resume this game?</string>
+    <string name="resume_game_dialog_text_message">The application has detected an unfinished game.
+                                                   Do you want to resume this game?
+    </string>
     <string name="resume_game_dialog_text_positive_button">@android:string/ok</string>
     <string name="resume_game_dialog_text_negative_button">No, start a new game</string>
-
-    <!-- ExitDialogFragment -->
-    <string name="exit_dialog_text_title">Confirm exit</string>
-    <string name="exit_dialog_text_message">Are you sure you want to exit?</string>
-    <string name="exit_dialog_text_positive_button">@android:string/ok</string>
-    <string name="exit_dialog_text_negative_button">@android:string/cancel</string>
-    <string name="exit_dialog_text_toast">Exit canceled.</string>
-
-    <!-- HowToPlay -->
-    <string name="title_activity_how_to_play">How to play</string>
-    <string name="how_to_play_text_title">How to play</string>
-    <string name="how_to_play_text_explanation">Ghost is a two-player word game in which the two
-    players take turns adding a letter to a growing word fragment. Both players must try to not be
-        the one to complete a valid word. If a player completes a valid word, he/she gets a letter.
-        A player loses the game when he/she has been given all five letters of the word \'ghost\'.
-        \nThere are two ways to get a letter:\n\t1) By forming a valid word longer than three letters
-        (e.g., \'pea\' is ok, but \'pear\' is not).\n\t2) By creating a word fragment (of any size) which
-        cannot become a word by adding more letters (e.g., \'qz\').\n\nSo, for example, a round could
-        proceed as follows: \n\t1) Player 1 says a letter. For example, \'p\'.\n\t2) Player 2 says a
-        letter. For example, \'e\'.\n\t3) Player 1 says a letter. For example, \'a\'. Player 1 has
-        formed a word (\'pea\'), but that is okay, because it is not longer than three letters.\n\t4) Player 2
-        says a letter. For example \'c\'. If player 2 would have said the letter \'z\', he/she would have
-        lost the round (and thus got a letter), because no valid word starts with \'peaz\'.\n\t5)
-        Player 1 says a letter. For example, \'e\'. Player 1 loses the round (and thus gets a letter),
-        because \'peace\' is a valid word (longer than three letters).
-
-    </string>
-
-    <!-- Settings -->
-    <string name="title_activity_settings">Settings</string>
-    <string name="settings_text_title">Settings</string>
-    <string name="settings_text_language">Language dictionary:</string>
-    <string name="settings_text_radio_dutch">Dutch</string>
-    <string name="settings_text_radio_english">English</string>
 
     <!-- PlayerSelect -->
     <string name="title_activity_player_select">Player select</string>
@@ -78,20 +47,6 @@
     <string name="players_text_save_error">Error saving player name.</string>
     <string name="players_text_player_added">Player name added.</string>
 
-    <!-- Highscores -->
-    <string name="title_activity_highscores">Highscores</string>
-    <string name="highscores_text_title">Highscores</string>
-
-    <!-- MyCustomAdapter -->
-    <string name="my_custom_adapter_text_image">Medal</string>
-
-    <!-- HighscoresData -->
-    <string name="highscores_data_text_retrieval_error">Error retrieving highscores.</string>
-    <string name="highscores_data_text_save_error">Error saving highscore.</string>
-
-    <!-- Lexicon -->
-    <string name="lexicon_text_retrieval_error">Error retrieving the word list.</string>
-
     <!-- GhostGame -->
     <string name="title_activity_ghost_game">Ghost game</string>
     <string name="ghost_game_text_initial_letters_player">.....</string>
@@ -108,6 +63,9 @@
     <string name="game_text_no_valid_word">cannot become a valid word.</string>
     <string name="game_text_valid_word">is a valid word longer than three letters.</string>
 
+    <!-- Lexicon -->
+    <string name="lexicon_text_retrieval_error">Error retrieving the word list.</string>
+
     <!-- Results -->
     <string name="title_activity_results">Results</string>
     <string name="results_text_title">Results</string>
@@ -115,5 +73,81 @@
     <string name="results_text_winner1">Congratulations</string>
     <string name="results_text_winner2">, you have won the game! You are a winner!</string>
     <string name="results_text_main_menu">Main menu</string>
+
+    <!-- Highscores -->
+    <string name="title_activity_highscores">Highscores</string>
+    <string name="highscores_text_title">Highscores</string>
+
+    <!-- MyCustomAdapter -->
+    <string name="my_custom_adapter_text_image">Medal</string>
+
+    <!-- HighscoresData -->
+    <string name="highscores_data_text_retrieval_error">Error retrieving highscores.</string>
+    <string name="highscores_data_text_save_error">Error saving highscore.</string>
+
+    <!-- HowToPlay -->
+    <string name="title_activity_how_to_play">How to play</string>
+    <string name="how_to_play_text_title">How to play</string>
+    <string name="how_to_play_text_explanation">Ghost is a two-player word game in which the two
+        players take turns adding a letter to a growing word fragment. Both players must try to not be
+        the one to complete a valid word. If a player completes a valid word, he/she gets a letter.
+        A player loses the game when he/she has been given all five letters of the word \'ghost\'.
+        \nThere are two ways to get a letter:\n\t1) By forming a valid word longer than three letters
+        (e.g., \'pea\' is ok, but \'pear\' is not).\n\t2) By creating a word fragment (of any size) which
+        cannot become a word by adding more letters (e.g., \'qz\').\n\nSo, for example, a round could
+        proceed as follows: \n\t1) Player 1 says a letter. For example, \'p\'.\n\t2) Player 2 says a
+        letter. For example, \'e\'.\n\t3) Player 1 says a letter. For example, \'a\'. Player 1 has
+        formed a word (\'pea\'), but that is okay, because it is not longer than three letters.\n\t4) Player 2
+        says a letter. For example \'c\'. If player 2 would have said the letter \'z\', he/she would have
+        lost the round (and thus got a letter), because no valid word starts with \'peaz\'.\n\t5)
+        Player 1 says a letter. For example, \'e\'. Player 1 loses the round (and thus gets a letter),
+        because \'peace\' is a valid word (longer than three letters).
+    </string>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_text_title">Settings</string>
+    <string name="settings_text_language">Language dictionary:</string>
+    <string name="settings_text_radio_dutch">Dutch</string>
+    <string name="settings_text_radio_english">English</string>
+
+    <!-- Credits -->
+    <string name="title_activity_credits">Credits</string>
+    <string name="credits_text_title">Credits</string>
+    <string name="credits_text_credits">Below, I provide links to the source for the images that I
+        have used while developing this application.\n\nTitles:\n\n1) All the screen titles (i.e.,
+        the title above) have been generated via: <a href="http://cooltext.com/Logo-Design-Dark">
+            http://cooltext.com/Logo-Design-Dark</a>.\n\nGhost image + decorations:\n\n2) The ghost
+        image: <a href="http://www.clipartlord.com/free-cartoon-ghost-clip-art-2/">
+            http://www.clipartlord.com/free-cartoon-ghost-clip-art-2/</a>.\n\n3) The winner crown:
+        <a href="https://commons.wikimedia.org/wiki/File%3AHeraldic_Royal_Crown_of_the_King_of_the_Romans_(18th_Century).svg">
+            https://commons.wikimedia.org/wiki/File%3AHeraldic_Royal_Crown_of_the_King_of_the_Romans_(18th_Century).svg
+        </a> \n\n4) The winner flag:
+        <a href="http://www.clker.com/clipart-262548.html">http://www.clker.com/clipart-262548.html</a>.
+        \n\nIcons:\n\n5) The play icon: <a href="http://ic8.link/5722">http://ic8.link/5722</a>.
+        \n\n6) The highscores icon: <a href="http://ic8.link/6071">http://ic8.link/6071</a>.
+        \n\n7) The \'how to play\' icon: <a href="http://ic8.link/15425">http://ic8.link/15425</a>.
+        \n\n8) The settings icon: <a href="http://ic8.link/5590">http://ic8.link/5590</a>.
+        \n\n9) The credits icon: <a href="http://ic8.link/5806">http://ic8.link/5806</a>.
+        \n\n10) The \'main menu\' icon: <a href="http://ic8.link/5572">http://ic8.link/5572</a>.
+        \n\n11) The exit icon: <a href="http://ic8.link/16570">http://ic8.link/16570</a>.
+        \n\nMedals:\n\n12) The gold medal:
+        <a href="https://www.iconfinder.com/icons/36194/gold_medal_icon#size=32">
+            https://www.iconfinder.com/icons/36194/gold_medal_icon#size=32
+        </a>.\n\n13) The silver medal:
+        <a href="https://www.iconfinder.com/icons/36200/medal_silver_icon#size=32">
+            https://www.iconfinder.com/icons/36200/medal_silver_icon#size=32
+        </a>.\n\n14) The bronze medal:
+        <a href="https://www.iconfinder.com/icons/36188/bronze_medal_icon#size=32">
+            https://www.iconfinder.com/icons/36188/bronze_medal_icon#size=32
+        </a>.
+    </string>
+
+    <!-- ExitDialogFragment -->
+    <string name="exit_dialog_text_title">Confirm exit</string>
+    <string name="exit_dialog_text_message">Are you sure you want to exit?</string>
+    <string name="exit_dialog_text_positive_button">@android:string/ok</string>
+    <string name="exit_dialog_text_negative_button">@android:string/cancel</string>
+    <string name="exit_dialog_text_toast">Exit canceled.</string>
 
 </resources>

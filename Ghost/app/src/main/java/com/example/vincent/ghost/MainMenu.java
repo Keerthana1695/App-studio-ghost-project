@@ -2,8 +2,8 @@
  * MainMenu.java
  *
  * The main menu Activity. This is the launch Activity (i.e., the Activity that is shown to the
- * user(s) when he/she/(they) start(s) the application. From this Activity, the user(s) can start
- * a (new) game and go to the highscores, the how to play, and the settings.
+ * user(s) when he/she/(they) start(s) the application). From this Activity, the user(s) can start
+ * a (new) game, and go to the highscores, the how to play, and the settings.
  *
  * Author: Vincent Erich
  * Version: October, 2015
@@ -38,7 +38,7 @@ public class MainMenu extends Activity {
     }
 
     /*
-     * Handles a click on the 'Start a game' TextView. It is first checked whether the value for
+     * Handles a click on the 'Start a game' TextView. It is first checked whether the value of
      * the key 'savedGameKey' (defined in GhostGame.java) in the shared preferences is false. If so,
      * the user is directed to the player select Activity (see PlayerSelect.java). If not, a dialog
      * is shown to the user that asks whether he/she wants to start a new game or wants to resume
@@ -83,6 +83,15 @@ public class MainMenu extends Activity {
         Intent goToSettings = new Intent(getApplicationContext(), Settings.class);
         goToSettings.putExtra(Settings.activityThatCalledKey, activityName);
         startActivity(goToSettings);
+    }
+
+    /*
+     * Handles a click on the 'Credits' TextView; directs the user to the credits Activity (see
+     * Credits.java).
+     */
+    public void onCreditsClick(View view) {
+        Intent goToCredits = new Intent(getApplicationContext(), Credits.class);
+        startActivity(goToCredits);
     }
 
     /*

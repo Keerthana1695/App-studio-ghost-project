@@ -276,7 +276,7 @@ public class GhostGame extends Activity {
      * Handles a click on the 'Change language' menu option. If this menu option is clicked, the
      * user is directed to the settings Activity (see Settings.java). The ghost game Activity
      * expects a result from the setting Activity (i.e., a boolean value that indicates whether
-     * the dictionary language has been changed).
+     * the preferred dictionary language has been changed).
      */
     private void handleChangeLanguageOption() {
         Intent goToSettings = new Intent(getApplicationContext(), Settings.class);
@@ -289,10 +289,10 @@ public class GhostGame extends Activity {
 
     /*
      * Handles the result of the settings Activity (i.e., the boolean value that indicates whether
-     * the dictionary language has been changed, see Settings.java). If the returned boolean is
-     * true (i.e., the dictionary language has been changed), simply call the method
-     * 'handleNewGameAction()' (i.e., start a new game). If the returned boolean is false,
-     * simply show a toast that the dictionary language has not been changed.
+     * the preferred dictionary language has been changed, see Settings.java). If the returned
+     * boolean is true (i.e., the preferred dictionary language has been changed), simply call the
+     * method 'handleNewGameAction()' (i.e., start a new game). If the returned boolean is false,
+     * simply show a toast that the preferred dictionary language has not been changed.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -346,8 +346,8 @@ public class GhostGame extends Activity {
     }
 
     /*
-     * Processes the player input and returns a boolean value that indicates whether the input is
-     * successfully processed or not.
+     * Processes the player input and returns a boolean value that indicates whether the input has
+     * been successfully processed or not.
      */
     private boolean processInput() {
         String inputLetter = String.valueOf(playerInput.getText()).toUpperCase();
@@ -413,7 +413,7 @@ public class GhostGame extends Activity {
     }
 
     /*
-     * Handles a click on the physical back button. This method uses the method 'saveGameState()' to
+     * Handles a click on the physical back button. This method calls the method 'saveGameState()' to
      * save all the game data to the shared preferences.
      */
     @Override
@@ -423,7 +423,7 @@ public class GhostGame extends Activity {
     }
 
     /*
-     * Saves additional data about the Activity state. This method uses the method 'saveGameState()'
+     * Saves additional data about the Activity state. This method calls the method 'saveGameState()'
      * to save all the game data to the shared preferences.
      */
     @Override

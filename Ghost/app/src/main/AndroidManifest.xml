@@ -45,7 +45,12 @@
         <activity
             android:name=".Results"
             android:label="@string/title_activity_results"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Credits"
+            android:label="@string/title_activity_credits"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

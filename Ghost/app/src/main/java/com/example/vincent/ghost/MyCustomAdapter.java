@@ -52,7 +52,7 @@ public class MyCustomAdapter extends ArrayAdapter<Player> {
     }
 
     /*
-     * Initializes all the views that are used in a ListView row.
+     * Initializes all the (required) views.
      */
     private void initializeViews(View view) {
         rankingTextView = (TextView) view.findViewById(R.id.player_ranking_row_textView);
@@ -62,7 +62,7 @@ public class MyCustomAdapter extends ArrayAdapter<Player> {
     }
 
     /*
-     * Sets the content of the views that are used in a ListView row.
+     * Sets the content of the views.
      */
     private void setViewsContent(int position) {
         Player player = getItem(position);
