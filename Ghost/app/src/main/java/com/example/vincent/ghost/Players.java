@@ -3,7 +3,7 @@
  *
  * A model class that represents the names of all the player that have played the game before.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class Players {
 

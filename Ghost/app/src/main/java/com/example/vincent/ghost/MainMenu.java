@@ -5,7 +5,7 @@
  * user(s) when he/she/(they) start(s) the application). From this Activity, the user(s) can start
  * a (new) game, and go to the highscores, the how to play, and the settings.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
 
 public class MainMenu extends Activity {
 

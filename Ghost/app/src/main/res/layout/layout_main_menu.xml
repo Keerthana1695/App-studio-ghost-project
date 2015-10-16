@@ -38,6 +38,7 @@
 
         <TextView
             android:text="@string/main_menu_text_start_a_game"
+            android:drawableLeft="@drawable/play_icon"
             android:drawableStart="@drawable/play_icon"
             android:onClick="onStartAGameClick"
             android:id="@+id/start_a_game_textView"
@@ -45,6 +46,7 @@
 
         <TextView
             android:text="@string/main_menu_text_highscores"
+            android:drawableLeft="@drawable/trophy_icon"
             android:drawableStart="@drawable/trophy_icon"
             android:onClick="onHighscoresClickInMainMenu"
             android:id="@+id/highscores_textView"
@@ -52,6 +54,7 @@
 
         <TextView
             android:text="@string/main_menu_text_how_to_play"
+            android:drawableLeft="@drawable/info_icon"
             android:drawableStart="@drawable/info_icon"
             android:onClick="onHowToPlayClick"
             android:id="@+id/how_to_play_textView"
@@ -59,6 +62,7 @@
 
         <TextView
             android:text="@string/main_menu_text_settings"
+            android:drawableLeft="@drawable/settings_icon"
             android:drawableStart="@drawable/settings_icon"
             android:onClick="onSettingsClick"
             android:id="@+id/settings_textView"
@@ -66,6 +70,7 @@
 
         <TextView
             android:text="@string/main_menu_text_credits"
+            android:drawableLeft="@drawable/credits_icon"
             android:drawableStart="@drawable/credits_icon"
             android:onClick="onCreditsClick"
             android:id="@+id/credits_textView"
@@ -73,6 +78,7 @@
 
         <TextView
             android:text="@string/main_menu_text_exit"
+            android:drawableLeft="@drawable/exit_icon"
             android:drawableStart="@drawable/exit_icon"
             android:onClick="onExitClick"
             android:id="@+id/exit_textView"

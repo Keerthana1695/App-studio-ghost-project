@@ -1,9 +1,9 @@
 /*
  * Credits.java
  *
- * The credits activity. This activity shows the credits to the user(s).
+ * The credits Activity. This Activity shows the credits to the user(s).
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -18,6 +18,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 
 public class Credits extends Activity {
 

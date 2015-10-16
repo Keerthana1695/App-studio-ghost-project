@@ -5,7 +5,7 @@
  *
 (*) Every time a player wins a game, his/her score is incremented by one.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -27,6 +27,7 @@ import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.Map;
 
+
 public class Highscores extends Activity {
 
     /*
@@ -46,7 +47,7 @@ public class Highscores extends Activity {
      * Obtains the data for the ArrayAdapter. A HighscoresData instance (see HighscoresData.java) is
      * created with which a Hashtable is retrieved with name-score pairs. This Hashtable is
      * transferred to an ArrayList with map entries (name-score) sorted by value in descending order
-     * (i.e., sorted by score in descending order, see the method 'sortByValue(...)'. This
+     * (i.e., sorted by score in descending order, see the method 'sortByValue(...)'). This
      * ArrayList is subsequently used to create an array with Player objects (see Player.java),
      * which is the array that is returned by this method.
      */

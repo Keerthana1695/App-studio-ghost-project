@@ -4,7 +4,7 @@
  * The player select Activity. This Activity allows the user(s) (player(s)) to set a name for the
  * game. The user(s) can select a previously entered name, or enter a new name.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -14,17 +14,21 @@ package com.example.vincent.ghost;
  * Necessary import statements.
  */
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
 
 public class PlayerSelect extends Activity {
 
@@ -182,5 +186,20 @@ public class PlayerSelect extends Activity {
         goToGhostGame.putExtra(keyPlayer2Name, namePlayer2);
         startActivity(goToGhostGame);
         finish();
+    }
+
+    /*
+     * Hides the keyboard when the user presses outside the keyboard.
+     *
+     * NOTE: This code is obtained from stackoverflow. Source: http://stackoverflow.com/a/8697635
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        View focus = getCurrentFocus();
+        if(focus != null) {
+            imm.hideSoftInputFromWindow(focus.getWindowToken(), 0);
+        }
+        return true;
     }
 }

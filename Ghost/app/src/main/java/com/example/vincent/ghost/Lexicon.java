@@ -4,7 +4,7 @@
  * A model class that represents a list of words in Dutch or English (i.e., a lexicon) that can be
  * filtered by prefix.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Iterator;
+
 
 public class Lexicon {
 

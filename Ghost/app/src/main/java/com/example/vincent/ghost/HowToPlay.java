@@ -4,7 +4,7 @@
  * The 'how to play' Activity. This Activity shows the user(s) information on how to play the Ghost
  * game.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 
 public class HowToPlay extends Activity {
 

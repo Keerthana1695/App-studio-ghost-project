@@ -4,7 +4,7 @@
  * The results Activity. This Activity congratulates the winner of the game and allows the user(s)
  * to navigate to the highscores, the main menu, or to start a new game.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.Hashtable;
+
 
 public class Results extends Activity {
 

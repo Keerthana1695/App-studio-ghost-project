@@ -66,6 +66,14 @@
     <!-- Lexicon -->
     <string name="lexicon_text_retrieval_error">Error retrieving the word list.</string>
 
+    <!-- ChangeLanguageDialogFragments -->
+    <string name="change_language_dialog_text_title">Change dictionary language</string>
+    <string name="change_language_dialog_text_message">Are you sure you want to change the
+                                                       dictionary language? Changing the dictionary
+                                                       language will start a new game. </string>
+    <string name="change_language_dialog_text_positive_button">@android:string/ok</string>
+    <string name="change_language_dialog_text_negative_button">@android:string/cancel</string>
+
     <!-- Results -->
     <string name="title_activity_results">Results</string>
     <string name="results_text_title">Results</string>

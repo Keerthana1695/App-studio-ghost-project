@@ -1,11 +1,11 @@
 /*
  * ExitDialogFragment.java
  *
- * This class implements a dialog that asks the user(s) whether he/she/(they) is/are sure to exit
+ * This class implements a dialog that asks the user(s) whether he/she/(they) is/(are) sure to exit
  * the game. This dialog is shown when the user presses the 'Exit' TextView or the physical back
  * button in the main menu (see MainMenu.java).
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -21,6 +21,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Toast;
 
+
 public class ExitDialogFragment extends DialogFragment {
 
     /*
@@ -29,7 +30,7 @@ public class ExitDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog (Bundle savedInstanceState) {
         /*
-         * Create the dialog.
+         * Creates the dialog.
          */
         AlertDialog.Builder theDialog = new AlertDialog.Builder(getActivity());
         theDialog.setTitle(R.string.exit_dialog_text_title);
@@ -47,9 +48,8 @@ public class ExitDialogFragment extends DialogFragment {
         });
 
         /*
-         * Implements the behaviour of the negative button (i.e., 'Cancel'). If the negative button is
-         * clicked, nothing happens (a toast will be shown indicating that the exit has been
-         * canceled).
+         * Implements the behaviour of the negative button (i.e., 'Cancel'). If the negative button
+         * is clicked, a toast will be shown indicating that the exit has been canceled.
          */
         theDialog.setNegativeButton(R.string.exit_dialog_text_negative_button, new DialogInterface.OnClickListener() {
             @Override

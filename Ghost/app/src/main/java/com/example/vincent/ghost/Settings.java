@@ -4,7 +4,7 @@
  * The settings Activity. This Activity allows the user(s) to set the language of the dictionary
  * used in the game (i.e., Dutch or English).
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RadioGroup;
+
 
 public class Settings extends Activity {
 

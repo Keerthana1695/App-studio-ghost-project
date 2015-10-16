@@ -5,7 +5,7 @@
  * unfinished game or start a new game. This dialog is shown when the user presses the 'Start a
  * game' TextView in the main menu and the application has detected an unfinished game.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -22,6 +22,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 
 public class ResumeGameDialogFragment extends DialogFragment {
 

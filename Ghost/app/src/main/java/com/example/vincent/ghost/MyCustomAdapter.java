@@ -5,7 +5,7 @@
  * Highscores.java). The custom ArrayAdapter works with an array with Player objects (see
  * Player.java) as data.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 public class MyCustomAdapter extends ArrayAdapter<Player> {
 
@@ -42,10 +43,12 @@ public class MyCustomAdapter extends ArrayAdapter<Player> {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null) {
-            LayoutInflater theInflater = LayoutInflater.from(getContext());
-            convertView = theInflater.inflate(R.layout.layout_row_my_custom_adapter, parent, false);
-        }
+        LayoutInflater theInflater = LayoutInflater.from(getContext());
+        /*
+         * It is not checked whether 'covertView' is null (i.e., whether it can be recycled). This
+         * resulted in an incorrect layout.
+         */
+        convertView = theInflater.inflate(R.layout.layout_row_my_custom_adapter, parent, false);
         initializeViews(convertView);
         setViewsContent(position);
         return convertView;

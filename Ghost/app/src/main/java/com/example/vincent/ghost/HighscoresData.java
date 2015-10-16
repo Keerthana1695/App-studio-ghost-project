@@ -5,7 +5,7 @@
  * regarding the highscores (i.e., retrieving the highscores, adding a highscore, and saving the
  * highscores).
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -23,6 +23,7 @@ import java.io.PrintStream;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Scanner;
+
 
 public class HighscoresData {
 

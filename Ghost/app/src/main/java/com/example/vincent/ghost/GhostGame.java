@@ -3,7 +3,7 @@
  *
  * The Ghost game Activity. This Activity allows the user(s) to actually play the game.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
@@ -13,6 +13,7 @@ package com.example.vincent.ghost;
  * Necessary import statements.
  */
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,6 +31,7 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
+
 
 public class GhostGame extends Activity {
 
@@ -50,6 +52,7 @@ public class GhostGame extends Activity {
     private Button enterButton;
     private Game game;
     private SharedPreferences prefs;
+    private String setLanguageBeforeCall;
 
     private final List<String> validInput = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H",
             "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y",
@@ -71,13 +74,13 @@ public class GhostGame extends Activity {
         setContentView(R.layout.layout_ghost_game);
         initializeViews();
         /*
-         * Check whether a saved game is present.
+         * Checks whether a saved game is present.
          */
         prefs = getSharedPreferences(Settings.prefsName, MODE_PRIVATE);
         boolean savedGame = prefs.getBoolean(savedGameKey, false);
         if(!savedGame) {
             /*
-             * Start/create a new game.
+             * Starts/creates a new game.
              */
             setPlayerNames();
             Lexicon lexicon = createLexicon();
@@ -85,7 +88,7 @@ public class GhostGame extends Activity {
         }
         else {
             /*
-             * Start/create a saved game.
+             * Starts/creates an unfinished/saved game.
              */
             getSavedDataAndCreateSavedGame();
             setSavedGameToFalse();
@@ -157,7 +160,7 @@ public class GhostGame extends Activity {
 
     /*
      * Sets the source of the ImageView that indicates the player turn and makes the name of the
-     * player whose turn it is bold (and make the name of the other player not bold).
+     * player whose turn it is bold (and makes the name of the other player not bold).
      */
     private void setImageTurnAndHighlightPlayer() {
         if (game.turn() == 1) {
@@ -175,7 +178,7 @@ public class GhostGame extends Activity {
     /*
      * Retrieves all the saved game data from the shared preferences and uses the method
      * 'setSavedDataAndCreateSavedGame(...)' to set the saved game data in the corresponding
-     * TextViews and to create a Game instance.
+     * TextViews and to create a Game instance (see Game.java).
      */
     private void getSavedDataAndCreateSavedGame() {
         namePlayer1 = prefs.getString(namePlayer1Key, "");
@@ -192,7 +195,7 @@ public class GhostGame extends Activity {
     /*
      * Sets the saved game data in the corresponding TextViews, uses the method 'createLexicon()'
      * to create a Lexicon instance (see Lexicon.java), and uses the method 'createSavedGame(...)'
-     * to create a Game instance.
+     * to create a Game instance (see Gama.java).
      */
     private void setSavedDataAndCreateSavedGame(String lettersPlayer1String, String lettersPlayer2String,
                                                 int playerTurn, String wordFormedString,
@@ -281,7 +284,7 @@ public class GhostGame extends Activity {
     private void handleChangeLanguageOption() {
         Intent goToSettings = new Intent(getApplicationContext(), Settings.class);
         goToSettings.putExtra(Settings.activityThatCalledKey, activityName);
-        String setLanguageBeforeCall = prefs.getString(Settings.languageKey, "");
+        setLanguageBeforeCall = prefs.getString(Settings.languageKey, "");
         goToSettings.putExtra(setLanguageBeforeCallKey, setLanguageBeforeCall);
         int result = 1;
         startActivityForResult(goToSettings, result);
@@ -290,17 +293,21 @@ public class GhostGame extends Activity {
     /*
      * Handles the result of the settings Activity (i.e., the boolean value that indicates whether
      * the preferred dictionary language has been changed, see Settings.java). If the returned
-     * boolean is true (i.e., the preferred dictionary language has been changed), simply call the
-     * method 'handleNewGameAction()' (i.e., start a new game). If the returned boolean is false,
-     * simply show a toast that the preferred dictionary language has not been changed.
+     * boolean is true (i.e., the preferred dictionary language has been changed), a dialog is
+     * shown that asks the user whether he/she is sure to change the preferred dictionary language
+     * (see ChangeLanguageDialogFragment.java). If the returned boolean is false, simply show a
+     * toast saying that the preferred dictionary language has not been changed.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         boolean languageChanged = data.getBooleanExtra(Settings.languageChangedKey, false);
         if(languageChanged) {
-            handleNewGameAction();
+            DialogFragment myChangeLanguageDialogFragment = new ChangeLanguageDialogFragment();
+            Bundle args = new Bundle();
+            args.putString(setLanguageBeforeCallKey, setLanguageBeforeCall);
+            myChangeLanguageDialogFragment.setArguments(args);
+            myChangeLanguageDialogFragment.show(getFragmentManager(), "theChangeLanguageDialog");
         }
         else {
             setSavedGameToFalse();
@@ -316,16 +323,16 @@ public class GhostGame extends Activity {
         enterButton.setEnabled(false);
         enterButton.setClickable(false);
         /*
-         * Process the player input.
+         * Processes the player input.
          */
         if(processInput()) {
             /*
-             * Check whether the round has ended.
+             * Checks whether the round has ended.
              */
             if (game.endRound(getApplicationContext())) {
                 setLettersLosingPlayer();
                 /*
-                 * Check whether the game has ended.
+                 * Checks whether the game has ended.
                  */
                 if (game.ended()) {
                     handleEndGame();
@@ -352,15 +359,15 @@ public class GhostGame extends Activity {
     private boolean processInput() {
         String inputLetter = String.valueOf(playerInput.getText()).toUpperCase();
         /*
-         * Check whether the input is invalid.
+         * Checks whether the input is invalid.
          */
         if(!validInput.contains(inputLetter)) {
             return false;
         }
         else {
             /*
-             * Append the player input (i.e., a letter) to the word formed thus far, obtain the new
-             * word fragment, and process this word fragment.
+             * Appends the player input (i.e., a letter) to the word (fragment) formed thus far,
+             * obtains the new word (fragment), and processes it.
              */
             playerInput.setText("");
             wordFormed.append(inputLetter);
@@ -413,8 +420,8 @@ public class GhostGame extends Activity {
     }
 
     /*
-     * Handles a click on the physical back button. This method calls the method 'saveGameState()' to
-     * save all the game data to the shared preferences.
+     * Handles a click on the physical back button. This method calls the method 'saveGameState()'
+     * to save all the game data to the shared preferences.
      */
     @Override
     public void onBackPressed() {

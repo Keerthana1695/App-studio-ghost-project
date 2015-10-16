@@ -3,11 +3,12 @@
  *
  * A 'helper' class that represents a single player. A player has a name, a score, and a ranking.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
 package com.example.vincent.ghost;
+
 
 public class Player {
 

@@ -4,14 +4,18 @@
  * A model class that represents a single game. This model class implements all relevant game rules
  * and uses a Lexicon instance (see Lexicon.java) to serve as the lexicon.
  *
- * Author: Vincent Erich
+ * Author: Vincent Erich <vincent.erich@live.nl>
  * Version: October, 2015
  */
 
 package com.example.vincent.ghost;
 
+/*
+ * Necessary import statements.
+ */
 import android.content.Context;
 import android.widget.Toast;
+
 
 public class Game {
 
@@ -24,7 +28,7 @@ public class Game {
     private String wordFormed;
 
     /*
-     * Constructor of the class. This constructor is called when a new game is started.
+     * Constructor of the class. This constructor is called when a new game is created/started.
      */
     public Game(Lexicon lexicon) {
         this.lexicon = lexicon;
@@ -35,7 +39,8 @@ public class Game {
     }
 
     /*
-     * Constructor of the class. This constructor is called when a saved game is resumed.
+     * Constructor of the class. This constructor is called when an unfinished/saved game is
+     * created/resumed.
      */
     public Game(Lexicon lexicon, String lettersPlayer1, String lettersPlayer2,
                 int playerTurn, String wordFormed) {
@@ -54,7 +59,7 @@ public class Game {
     }
 
     /*
-     * Sets the value of the property 'wordFormed' (i.e., the word formed thus far).
+     * Sets the value of the property 'wordFormed' (i.e., the word [fragment] formed thus far).
      */
     public void setWordFormed(String word) {
         wordFormed = word;
@@ -70,18 +75,20 @@ public class Game {
     /*
      * Returns a boolean that indicates whether a round has ended. A round has ended when:
      * 1) No valid word can be formed, or
-     * 2) A word longer than 3 letters has been formed.
+     * 2) A valid word longer than 3 letters has been formed.
      * If a round has ended, a toast with the reason for this is shown.
      */
     public boolean endRound(Context context) {
         if(lexicon.count() == 0) {
             Toast.makeText(context, "'" + wordFormed + "' " +
-                           context.getString(R.string.game_text_no_valid_word), Toast.LENGTH_LONG).show();
+                           context.getString(R.string.game_text_no_valid_word),
+                           Toast.LENGTH_LONG).show();
             return true;
         }
         else if(wordFormed.length() > 3 && lexicon.getFilteredLexicon().contains(wordFormed)) {
             Toast.makeText(context, "'" + wordFormed + "' " +
-                           context.getString(R.string.game_text_valid_word), Toast.LENGTH_LONG).show();
+                           context.getString(R.string.game_text_valid_word),
+                           Toast.LENGTH_LONG).show();
             return true;
         }
         else {
@@ -151,7 +158,7 @@ public class Game {
 
     /*
      * Resets the lexicon (see Lexicon.java) and the value of the property 'wordFormed' (i.e., the
-     * word formed thus far).
+     * word [fragment] formed thus far).
      */
     public void startNewRound() {
         lexicon.reset();
