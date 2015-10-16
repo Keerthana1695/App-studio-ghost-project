@@ -23,7 +23,7 @@
 
     <TextView
         android:textSize="20sp"
-        android:layout_width="210dp"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:id="@+id/player_name_row_textView"/>
